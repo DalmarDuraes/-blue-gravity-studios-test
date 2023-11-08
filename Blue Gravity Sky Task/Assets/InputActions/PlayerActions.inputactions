@@ -1,0 +1,34 @@
+{
+    "name": "PlayerActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "cca587cf-29ce-42db-b1d2-56fd33e229c7",
+            "actions": [
+                {
+                    "name": "NpcInteraction",
+                    "type": "Button",
+                    "id": "ec50cdd2-7e00-4c5a-bbda-e86fabf2b993",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1dcdf80e-831d-4c91-ad70-0f15f1eaab9a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NpcInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
