@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1664083358120384667}
   - component: {fileID: 8671795886991181078}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: InteractionKeyboardKeyTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294960272
+  m_fontColor: {r: 0.5647059, g: 0.8941177, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2265,5 +2265,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107c3c7610a9ecf4d93ea5090b5d6e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionTooltip: {fileID: 0}
+  _interactionTooltip: {fileID: 2361718803711701286}
   _npcShop: {fileID: 0}
