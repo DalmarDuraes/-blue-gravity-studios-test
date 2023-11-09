@@ -13,8 +13,6 @@ namespace BlueGravityStudios
         public String ItemName;
         public int ItemPrice;
         public ItemType ItemType { get; protected set; }
-
-     
     }
 }
 

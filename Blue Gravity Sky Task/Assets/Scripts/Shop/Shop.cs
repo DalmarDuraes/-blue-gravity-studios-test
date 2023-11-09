@@ -18,14 +18,14 @@ namespace BlueGravityStudios
 
         private void OnEnable()
         {
-            EventManager.Register<ItemOnUiBase>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
-            EventManager.Register<ItemOnUiBase>(EconomyEvents.SellItem, PlayerTrySellItem);
+            EventManager.Register<Item>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
+            EventManager.Register<Item>(EconomyEvents.SellItem, PlayerTrySellItem);
         }
 
         private void OnDisable()
         {
-            EventManager.Unregister<ItemOnUiBase>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
-            EventManager.Unregister<ItemOnUiBase>(EconomyEvents.SellItem, PlayerTrySellItem);
+            EventManager.Unregister<Item>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
+            EventManager.Unregister<Item>(EconomyEvents.SellItem, PlayerTrySellItem);
         }
         
         private void Awake()
@@ -41,22 +41,22 @@ namespace BlueGravityStudios
             }
         }
 
-        private void PlayerTryBuyItem(ItemOnUiBase itemOnUiBase)
+        private void PlayerTryBuyItem(Item item)
         {
-            if (itemOnUiBase.ItemPrice > _PlayerCoins.Value) return;
-            BuyItem(itemOnUiBase);
+            if (item.ItemPrice > _PlayerCoins.Value) return;
+            BuyItem(item);
         }
 
-        private void PlayerTrySellItem(ItemOnUiBase itemOnUiBase)
+        private void PlayerTrySellItem(Item item)
         {
-            SellItem(itemOnUiBase);
+            SellItem(item);
         }
 
-        private void BuyItem(ItemOnUiBase itemOnUiBase)
+        private void BuyItem(Item item)
         {
-           EventManager.Trigger<ItemOnUiBase>(PlayerEvents.AddItemToInventory, itemOnUiBase);
-           EventManager.Trigger<int>(EconomyEvents.ReduceCoins, itemOnUiBase.ItemPrice);
-           RemoveItemFromList((ShopItem)itemOnUiBase);
+           EventManager.Trigger<Item>(PlayerEvents.AddItemToInventory, item);
+           EventManager.Trigger<int>(EconomyEvents.ReduceCoins, item.ItemPrice);
+           RemoveItemFromList((ShopItem)item);
         }
 
         private void RemoveItemFromList(ShopItem itemOnUiBase)
@@ -68,11 +68,11 @@ namespace BlueGravityStudios
             }
         }
 
-        protected void SellItem(ItemOnUiBase itemOnUiBase)
+        protected void SellItem(Item item)
         {
-            AddItemToShop(itemOnUiBase.ItemScriptable);
-            EventManager.Trigger<InventoryItem>(PlayerEvents.RemoveItemFromInventory, (InventoryItem)itemOnUiBase);
-            EventManager.Trigger<int>(EconomyEvents.AddCoins, itemOnUiBase.ItemSellPrice);
+            AddItemToShop(item.ItemScriptable);
+            EventManager.Trigger<InventoryItem>(PlayerEvents.RemoveItemFromInventory, (InventoryItem)item);
+            EventManager.Trigger<int>(EconomyEvents.AddCoins, item.ItemSellPrice);
         }
 
         private void AddItemToShop(ItemScriptable itemScriptable)

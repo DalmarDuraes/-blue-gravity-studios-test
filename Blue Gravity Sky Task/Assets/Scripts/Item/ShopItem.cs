@@ -7,11 +7,11 @@ using UnityEngine.UI;
 
 namespace BlueGravityStudios
 {
-    public class ShopItem: ItemOnUiBase
+    public class ShopItem: Item
     {
         public void BuyItem()
         {
-            EventManager.Trigger<ItemOnUiBase>(EconomyEvents.TryBuyItem, this);
+            EventManager.Trigger<Item>(EconomyEvents.TryBuyItem, this);
         }
     }
 

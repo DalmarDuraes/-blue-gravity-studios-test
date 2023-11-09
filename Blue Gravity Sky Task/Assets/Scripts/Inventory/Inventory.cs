@@ -22,7 +22,7 @@ namespace BlueGravityStudios
         
         private void OnEnable()
         {
-            EventManager.Register<ItemOnUiBase>(PlayerEvents.AddItemToInventory, AddItemToInventory);
+            EventManager.Register<Item>(PlayerEvents.AddItemToInventory, AddItemToInventory);
             EventManager.Register<InventoryItem>(PlayerEvents.RemoveItemFromInventory, RemoveItemFromInventory);
             EventManager.Register<bool>(NPCEvents.ToggleShop, OnAnyShopToggled); 
             EventManager.Register(PlayerEvents.PlayerInputToggleInventory, PlayerInputToggleInventory);
@@ -30,7 +30,7 @@ namespace BlueGravityStudios
 
         private void OnDisable()
         {
-            EventManager.Unregister<ItemOnUiBase>(PlayerEvents.AddItemToInventory, AddItemToInventory);
+            EventManager.Unregister<Item>(PlayerEvents.AddItemToInventory, AddItemToInventory);
             EventManager.Unregister<InventoryItem>(PlayerEvents.RemoveItemFromInventory, RemoveItemFromInventory);
             EventManager.Unregister<bool>(NPCEvents.ToggleShop, OnAnyShopToggled);
             EventManager.Unregister(PlayerEvents.PlayerInputToggleInventory, PlayerInputToggleInventory);
@@ -44,9 +44,9 @@ namespace BlueGravityStudios
             ToggleInventory(value);
         }
    
-        private void AddItemToInventory(ItemOnUiBase itemOnUiBase)
+        private void AddItemToInventory(Item item)
         {
-            InstantiateNewInventoryItem(itemOnUiBase);
+            InstantiateNewInventoryItem(item);
         }
         private void RemoveItemFromInventory(InventoryItem itemOnUiBase)
         {
@@ -57,10 +57,10 @@ namespace BlueGravityStudios
             }
         }
 
-        private void InstantiateNewInventoryItem(ItemOnUiBase itemOnUiBase)
+        private void InstantiateNewInventoryItem(Item item)
         {
             InventoryItem inventoryItemOnUiBase = Instantiate(inventoryItemOnUiBasePrefab, _inventoryItemParent);
-            inventoryItemOnUiBase.SetItemScriptable(itemOnUiBase.ItemScriptable);
+            inventoryItemOnUiBase.SetItemScriptable(item.ItemScriptable);
             _inventoryItemList.Add(inventoryItemOnUiBase);
             inventoryItemOnUiBase.CallInit();
         }

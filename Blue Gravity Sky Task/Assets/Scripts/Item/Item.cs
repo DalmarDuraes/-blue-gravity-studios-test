@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace BlueGravityStudios
 {
-    public class ItemOnUiBase : MonoBehaviour
+    public class Item : MonoBehaviour
     {
         [SerializeField] protected TextMeshProUGUI _itemNameTxt;
         [SerializeField] protected TextMeshProUGUI _itemPriceTxt;

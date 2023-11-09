@@ -1496,9 +1496,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10e50227e252f429b690ae2b64395d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shopkeeperInteractionVisual: {fileID: 1503170722}
   _minDistanceToInteract: 2
   _canInteract: 0
-  _shopkeeperInteractionVisual: {fileID: 1503170722}
 --- !u!1 &5331771605479944000
 GameObject:
   m_ObjectHideFlags: 0

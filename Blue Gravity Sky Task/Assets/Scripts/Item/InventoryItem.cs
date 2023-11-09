@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace BlueGravityStudios
 {
-    public class InventoryItem: ItemOnUiBase
+    public class InventoryItem: Item
     {
         [SerializeField] private GameObject _sellBtn;
         [SerializeField] private GameObject _equipItemBtn;
@@ -20,11 +20,11 @@ namespace BlueGravityStudios
 
         public void SellItem()
         {
-            EventManager.Trigger<ItemOnUiBase>(EconomyEvents.SellItem, this);
+            EventManager.Trigger<Item>(EconomyEvents.SellItem, this);
         }
         public void TryEquipItem()
         {
-            EventManager.Trigger<ItemOnUiBase>(PlayerEvents.EquipItem, this);
+            EventManager.Trigger<Item>(PlayerEvents.EquipItem, this);
         }
 
         public void ActiveEquipBtn()

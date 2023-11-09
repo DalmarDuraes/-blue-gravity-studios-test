@@ -6,7 +6,7 @@ namespace BlueGravityStudios
 {
     public class PlayerEquipment : MonoBehaviour
     {
-        [SerializeField] private EquipmentStruct _currentEquipment;
+        [SerializeField] private EquipmentStruct _currentEquipments;
         // Start is called before the first frame update
     
     }
