@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,6 +10,8 @@ namespace BlueGravityStudios
     public class ShopItemScriptable : ScriptableObject
     {
         public Sprite ItemSprite;
+        public Sprite SecondaryItemSprite;
+        public String ItemName;
         public int ItemPrice;
         public ItemType ItemType;
 
@@ -18,6 +21,6 @@ namespace BlueGravityStudios
 public enum ItemType
 {
     Hood,
-    
+    Shoulder,
     
 }

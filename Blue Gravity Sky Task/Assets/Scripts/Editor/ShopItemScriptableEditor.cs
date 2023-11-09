@@ -23,7 +23,7 @@ namespace BlueGravityStudios
                 return;
 
             Texture2D texture = AssetPreview.GetAssetPreview(_shopItem.ItemSprite);
-            GUILayout.Label("", GUILayout.Height(80), GUILayout.Width(80));
+            GUILayout.Label("", GUILayout.Height(160), GUILayout.Width(160));
             GUI.DrawTexture(GUILayoutUtility.GetLastRect(), texture);
         }
     }

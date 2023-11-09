@@ -16,9 +16,6 @@ Pre-Written code:
 Additional resources:
 	2D Mega Pack, made by “Brackeys”: 
 	https://assetstore.unity.com/packages/2d/free-2d-mega-pack-177430
-
-	Character Base, made by “Seliel the Shaper”: 
-	https://seliel-the-shaper.itch.io/character-base
 	
 	2D CASUAL UI
 	https://assetstore.unity.com/packages/2d/gui/icons/2d-casual-ui-hd-82080

@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be31d18eab2c7b14f94af512f52e9653, type: 3}
-  m_Name: Rogue Hood Blue
+  m_Name: Rogue Armored Shoulder
   m_EditorClassIdentifier: 
   ItemSprite: {fileID: 21300000, guid: ae2d3e3bacfacde4981510b116293dba, type: 3}
-  ItemPrice: 0
-  ItemType: 0
+  SecondaryItemSprite: {fileID: 0}
+  ItemName: Blue Hood
+  ItemPrice: 100
+  ItemType: 1

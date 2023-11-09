@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be31d18eab2c7b14f94af512f52e9653, type: 3}
-  m_Name: Rogue Hood Gray
+  m_Name: Rogue Gray Shoulder
   m_EditorClassIdentifier: 
-  ItemSprite: {fileID: 21300000, guid: dcb72940063c94f44abc2366768e713a, type: 3}
-  ItemPrice: 0
-  ItemType: 0
+  ItemSprite: {fileID: 21300000, guid: 805906b1206aa944b99385aa2c600d2f, type: 3}
+  SecondaryItemSprite: {fileID: 21300000, guid: 9fe981f3e80b99e429e4399b985d07f4, type: 3}
+  ItemName: Gray Shoulder
+  ItemPrice: 100
+  ItemType: 1
