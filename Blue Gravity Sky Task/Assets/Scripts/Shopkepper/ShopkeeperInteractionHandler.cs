@@ -10,11 +10,11 @@ namespace BlueGravityStudios
     {
         private PlayerController _player;
         
+        [SerializeField] private ShopkeeperInteractionVisual _shopkeeperInteractionVisual;
         [Tooltip("Minimum distance from the player to enable interaction")] 
         [SerializeField] private float _minDistanceToInteract;
 
         [SerializeField] private bool _canInteract;
-        [SerializeField] private ShopkeeperInteractionVisual _shopkeeperInteractionVisual;
 
         private void OnEnable()
         {

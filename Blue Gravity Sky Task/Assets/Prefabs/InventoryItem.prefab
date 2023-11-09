@@ -660,6 +660,9 @@ MonoBehaviour:
   _itemNameTxt: {fileID: 960634580466657295}
   _itemPriceTxt: {fileID: 5217741110897363167}
   _itemSpriteOnUi: {fileID: 5901074998076596253}
+  _sellBtn: {fileID: 1303017336454183357}
+  _equipItemBtn: {fileID: 5352592293574525547}
+  _pricePanel: {fileID: 2170956420590303713}
 --- !u!224 &51189366236498527 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6711610830969757282, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
@@ -676,6 +679,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2170956420590303713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4877815473945931228, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
+  m_PrefabInstance: {fileID: 6742365867470754877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5217741110897363167 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1583175720017681634, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}

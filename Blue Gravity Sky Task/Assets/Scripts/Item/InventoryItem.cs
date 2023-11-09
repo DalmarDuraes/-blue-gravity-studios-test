@@ -8,6 +8,10 @@ namespace BlueGravityStudios
 {
     public class InventoryItem: ItemOnUiBase
     {
+        [SerializeField] private GameObject _sellBtn;
+        [SerializeField] private GameObject _equipItemBtn;
+        [SerializeField] private GameObject _pricePanel;
+        
         protected override void Init()
         {
             base.Init();
@@ -22,6 +26,22 @@ namespace BlueGravityStudios
         {
             EventManager.Trigger<ItemOnUiBase>(PlayerEvents.EquipItem, this);
         }
+
+        public void ActiveEquipBtn()
+        {
+            _equipItemBtn.SetActive(true);
+            _sellBtn.SetActive(false);
+            _pricePanel.SetActive(false);
+        }
+        
+        public void ActiveSellBtn()
+        {
+            _equipItemBtn.SetActive(false);
+            _sellBtn.SetActive(true);
+            _pricePanel.SetActive(true);
+
+        }
+
 
     }
 }

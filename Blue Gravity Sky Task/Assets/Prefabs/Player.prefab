@@ -1670,7 +1670,7 @@ GameObject:
   - component: {fileID: 3930912717108031380}
   - component: {fileID: 985227657446972151}
   - component: {fileID: 6131830132280270007}
-  - component: {fileID: 8875973319630430177}
+  - component: {fileID: 814610621451721129}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1801,7 +1801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6862ba4fc884f64180c8e0072186e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8875973319630430177
+--- !u!114 &814610621451721129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1810,15 +1810,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3161474933816722015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a72542d817859243b6e9f6156ff6450, type: 3}
+  m_Script: {fileID: 11500000, guid: ee6ace0841e56b64cbc57ba7b015fb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hood: {fileID: 2967152872924887267}
-  _shoulderL: {fileID: 2967152874631177995}
-  _shoulderR: {fileID: 2967152874335838359}
-  _currentHood: {fileID: 0}
-  _currentShoulderL: {fileID: 0}
-  _currentShoulderR: {fileID: 0}
 --- !u!1 &3161474933927054109
 GameObject:
   m_ObjectHideFlags: 0

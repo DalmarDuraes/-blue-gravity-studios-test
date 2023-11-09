@@ -13,7 +13,10 @@ namespace BlueGravityStudios
         [FormerlySerializedAs("_inventoryItemPrefab")] [SerializeField] private InventoryItem inventoryItemOnUiBasePrefab;
         [SerializeField] private Transform _inventoryItemParent;
         [SerializeField] private InventoryUI _uiPanel;
+        
         [SerializeField] private List<InventoryItem> _inventoryItemList = new List<InventoryItem>();
+        public List<InventoryItem> InventoryItemList => _inventoryItemList;
+        
         private bool _isOpen;
         private bool _isBlockedByOpenShop;
         
@@ -64,18 +67,23 @@ namespace BlueGravityStudios
         
         private void PlayerInputToggleInventory()
         {
-            TryToggleInventory(!_isOpen);
+            TryToggleInventory(!_isOpen, true);
         }
 
-        public void TryToggleInventory(bool value)
+        public void OnCloseButtonClick(bool value)
+        {
+            TryToggleInventory(value);
+        }
+
+        public void TryToggleInventory(bool value, bool openedByPlayer = false)
         {
             if (_isBlockedByOpenShop) return;
-            ToggleInventory(value);
+            ToggleInventory(value, openedByPlayer);
         }
-        private void ToggleInventory(bool value)
+        private void ToggleInventory(bool value, bool openedByPlayer = false)
         {
             _isOpen = value;
-            _uiPanel.ToggleUI(value);
+            _uiPanel.ToggleUI(value, openedByPlayer);
         }
     }
 }

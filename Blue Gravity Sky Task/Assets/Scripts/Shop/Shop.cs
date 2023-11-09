@@ -8,7 +8,7 @@ namespace BlueGravityStudios
 {
     public class Shop : MonoBehaviour
     {
-        [FormerlySerializedAs("_shopItemPrefab")] [SerializeField] private ShopItem shopItemOnUiBasePrefab;
+        [SerializeField] private ShopItem _shopItemPrefab;
         [SerializeField] private Transform _shopItemContainer;
         [SerializeField] protected Variable<int> _PlayerCoins;
         [SerializeField] private UIPanel _uiPanel;
@@ -77,7 +77,7 @@ namespace BlueGravityStudios
 
         private void AddItemToShop(ItemScriptable itemScriptable)
         {
-            var shopItem = Instantiate(shopItemOnUiBasePrefab, _shopItemContainer);
+            var shopItem = Instantiate(_shopItemPrefab, _shopItemContainer);
             shopItem.SetItemScriptable(itemScriptable);
             shopItem.CallInit();
             _shopItemList.Add(shopItem);
