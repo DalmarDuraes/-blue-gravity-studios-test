@@ -9,8 +9,20 @@ namespace BlueGravityStudios
     {
         [SerializeField] private ShopItem _shopItemPrefab;
         [SerializeField] private Transform _shopItemContainer;
-        [SerializeField] private List<ItemScriptable> _itemScriptableList = new List<ItemScriptable>();
+        [SerializeField] protected List<ItemScriptable> _itemScriptableList = new List<ItemScriptable>();
 
+        private void OnEnable()
+        {
+            EventManager.Register<Item>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
+            EventManager.Register<Item>(EconomyEvents.SellItem, PlayerTrySellItem);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Unregister<Item>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
+            EventManager.Unregister<Item>(EconomyEvents.SellItem, PlayerTrySellItem);
+        }
+        
         private void Awake()
         {
             PopulateShop();
@@ -24,5 +36,35 @@ namespace BlueGravityStudios
                 shopItem.SetItemScriptable(itemScriptable);
             }
         }
+
+        private void PlayerTryBuyItem(Item item)
+        {
+            int currentCoins = 0;
+           EventManager.TriggerReturn<int>(EconomyEvents.GetCurrentCoins, GetCurrentCoins );
+           
+           void GetCurrentCoins(int value) => currentCoins = value;
+
+           if (item.ItemPrice > currentCoins) return;
+           
+           BuyItem(item);
+        }
+
+        private void PlayerTrySellItem(Item item)
+        {
+            SellItem(item);
+        }
+
+        private void BuyItem(Item item)
+        {
+           EventManager.Trigger<Item>(PlayerEvents.AddItemToInventory, item);
+           EventManager.Trigger<int>(EconomyEvents.ReduceCoins, item.ItemPrice);
+        }
+
+        protected void SellItem(Item item)
+        {
+           EventManager.Trigger<Item>(PlayerEvents.RemoveItemFromInventory, item);
+        }
+
+     
     }
 }

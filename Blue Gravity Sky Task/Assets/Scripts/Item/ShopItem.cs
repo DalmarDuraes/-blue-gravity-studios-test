@@ -18,6 +18,11 @@ namespace BlueGravityStudios
             _itemPriceTxt.text = _itemPrice.ToString();
             _shopImage.sprite = _itemSprite;
         }
+
+        public void BuyItem()
+        {
+            EventManager.Trigger<Item>(EconomyEvents.TryBuyItem, this);
+        }
     }
 
 }

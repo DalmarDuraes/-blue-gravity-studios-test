@@ -695,7 +695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3157701527084990235}
   m_Layer: 0
-  m_Name: Rogue_pelvis_01
+  m_Name: Rogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1500,7 +1500,7 @@ GameObject:
   - component: {fileID: 3157701527004405889}
   - component: {fileID: 2967152872924887267}
   m_Layer: 0
-  m_Name: Rogue_face_03
+  m_Name: Rogue_face_hood_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1797,6 +1797,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a72542d817859243b6e9f6156ff6450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hood: {fileID: 2967152872924887267}
+  _shoulderL: {fileID: 2967152874631177995}
+  _shoulderR: {fileID: 2967152874335838359}
+  _currentHood: {fileID: 0}
+  _currentShoulderL: {fileID: 0}
+  _currentShoulderR: {fileID: 0}
 --- !u!1 &3161474933927054109
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,9 +9,11 @@ namespace BlueGravityStudios
     {
         [SerializeField] protected TextMeshProUGUI _itemNameTxt;
         protected string _itemName;
-        protected int _itemPrice;
         protected ItemScriptable _itemScriptable;
+        public ItemScriptable ItemScriptable => _itemScriptable;
         
+        protected int _itemPrice;
+        public int ItemPrice => _itemPrice;
 
         protected Sprite _itemSprite;
         public Sprite ItemSprite => _itemSprite;
@@ -34,7 +36,6 @@ namespace BlueGravityStudios
             _itemName = _itemScriptable.ItemName;
             _itemPrice = _itemScriptable.ItemPrice;
             _itemType = _itemScriptable.ItemType;
-
             _itemNameTxt.text = _itemName;
         }
         
