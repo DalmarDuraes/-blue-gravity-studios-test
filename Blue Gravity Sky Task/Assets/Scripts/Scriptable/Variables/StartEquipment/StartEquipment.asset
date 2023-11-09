@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e39e5a12bbc48542a266797450e421a, type: 3}
+  m_Name: StartEquipment
+  m_EditorClassIdentifier: 
+  DefaultValue:
+    _hood: {fileID: 11400000, guid: 491ecd25ecedf0540a0115794bf79700, type: 2}
+    _shoulder: {fileID: 11400000, guid: ae96cb45969125d4288d4a03b0961fc0, type: 2}
+    _top: {fileID: 11400000, guid: 888fc8c7cff83f3449a13d2d1f63c1ea, type: 2}
+    _botton: {fileID: 11400000, guid: 588ae40f879b54348988b161ccdf65ce, type: 2}
