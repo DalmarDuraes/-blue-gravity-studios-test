@@ -7,7 +7,7 @@ using UnityEngine;
 namespace BlueGravityStudios
 {
     [CreateAssetMenu(fileName = "New Shop Item", menuName = "Shop Item/Item")]
-    public class ShopItemScriptable : ScriptableObject
+    public class ItemScriptable : ScriptableObject
     {
         public Sprite ItemSprite;
         public Sprite SecondaryItemSprite;

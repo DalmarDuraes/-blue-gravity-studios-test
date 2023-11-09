@@ -5,24 +5,24 @@ using UnityEngine;
 
 namespace BlueGravityStudios
 {
-    [CustomEditor(typeof(ShopItemScriptable))]
+    [CustomEditor(typeof(ItemScriptable))]
     public class ShopItemScriptableEditor : Editor
     {
-        private ShopItemScriptable _shopItem;
+        private ItemScriptable _item;
 
         private void OnEnable()
         {
-            _shopItem = target as ShopItemScriptable;
+            _item = target as ItemScriptable;
         }
 
         public override void OnInspectorGUI()
         {
 
             base.OnInspectorGUI();
-            if (_shopItem.ItemSprite == null)
+            if (_item.ItemSprite == null)
                 return;
 
-            Texture2D texture = AssetPreview.GetAssetPreview(_shopItem.ItemSprite);
+            Texture2D texture = AssetPreview.GetAssetPreview(_item.ItemSprite);
             GUILayout.Label("", GUILayout.Height(160), GUILayout.Width(160));
             GUI.DrawTexture(GUILayoutUtility.GetLastRect(), texture);
         }
