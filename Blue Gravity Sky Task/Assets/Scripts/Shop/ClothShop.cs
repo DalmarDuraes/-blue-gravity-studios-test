@@ -7,7 +7,6 @@ namespace BlueGravityStudios
 {
     public class ClothShop : Shop
     {
-    
 
     }
 }

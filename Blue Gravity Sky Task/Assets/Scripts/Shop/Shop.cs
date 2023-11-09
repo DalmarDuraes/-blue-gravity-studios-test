@@ -11,6 +11,7 @@ namespace BlueGravityStudios
         [SerializeField] private Transform _shopItemContainer;
         [SerializeField] protected Variable<int> _PlayerCoins;
         [SerializeField] protected List<ItemScriptable> _itemScriptableList = new List<ItemScriptable>();
+        [SerializeField] protected List<ShopItem> _shopItemList = new List<ShopItem>();
         
         private void OnEnable()
         {
@@ -36,6 +37,7 @@ namespace BlueGravityStudios
                 var shopItem = Instantiate(_shopItemPrefab, _shopItemContainer);
                 shopItem.SetItemScriptable(itemScriptable);
                 shopItem.CallInit();
+                _shopItemList.Add(shopItem);
             }
         }
 
@@ -55,6 +57,17 @@ namespace BlueGravityStudios
         {
            EventManager.Trigger<Item>(PlayerEvents.AddItemToInventory, item);
            EventManager.Trigger<int>(EconomyEvents.ReduceCoins, item.ItemPrice);
+           RemoveItemFromList((ShopItem)item);
+        }
+
+        private void RemoveItemFromList(ShopItem item)
+        {
+          
+            if (_shopItemList.Contains(item))
+            {
+                _shopItemList.Remove(item);
+                item.Disable();
+            }
         }
 
         protected void SellItem(Item item)

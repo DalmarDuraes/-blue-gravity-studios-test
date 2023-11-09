@@ -8,6 +8,7 @@ namespace BlueGravityStudios
     public class Item : MonoBehaviour
     {
         [SerializeField] protected TextMeshProUGUI _itemNameTxt;
+        [SerializeField] protected TextMeshProUGUI _itemPriceTxt;
         protected string _itemName;
         protected ItemScriptable _itemScriptable;
         public ItemScriptable ItemScriptable => _itemScriptable;
@@ -33,8 +34,10 @@ namespace BlueGravityStudios
             _itemPrice = _itemScriptable.ItemPrice;
             _itemType = _itemScriptable.ItemType;
             _itemNameTxt.text = _itemName;
+            _itemPriceTxt.text = _itemPrice.ToString();
         }
         
         public void SetItemScriptable(ItemScriptable itemScriptable) => _itemScriptable = itemScriptable;
+        public void Disable() => gameObject.SetActive(false);
     }
 }
