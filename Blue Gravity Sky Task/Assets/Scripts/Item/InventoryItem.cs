@@ -9,11 +9,10 @@ namespace BlueGravityStudios
     public class InventoryItem : Item
     {
         [SerializeField] private Image _inventoryImage;
-        private int _itemSellPrice;
+      
         protected override void Init()
         {
             base.Init();
-            _itemSellPrice = _itemPrice / 2;
             _inventoryImage.sprite = _itemSprite;
             _itemPriceTxt.text = _itemSellPrice.ToString();
         }
@@ -21,6 +20,10 @@ namespace BlueGravityStudios
         public void SellItem()
         {
             EventManager.Trigger<Item>(EconomyEvents.SellItem, this);
+        }
+        public void TryEquipItem()
+        {
+            EventManager.Trigger<Item>(PlayerEvents.EquipItem, this);
         }
 
     }

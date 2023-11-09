@@ -67,7 +67,15 @@ namespace BlueGravityStudios
             if (_isShopOpen) return;
             
             _isShopOpen = true;
-            EventManager.Trigger<bool>(ShopkeeperEvents.ToggleShop, true);
+            EventManager.Trigger<bool>(NPCEvents.ToggleShop, true);
+        }
+
+        private void CloseShop()
+        {
+            if (!_isShopOpen) return;
+            
+            _isShopOpen = false;
+            EventManager.Trigger<bool>(NPCEvents.ToggleShop, false);
         }
 
         private float CalculateDistanceFromPlayer()

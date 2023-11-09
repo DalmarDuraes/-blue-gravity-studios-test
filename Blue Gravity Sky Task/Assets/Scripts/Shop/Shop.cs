@@ -10,6 +10,7 @@ namespace BlueGravityStudios
         [SerializeField] private ShopItem _shopItemPrefab;
         [SerializeField] private Transform _shopItemContainer;
         [SerializeField] protected Variable<int> _PlayerCoins;
+        [SerializeField] private UIPanel _uiPanel;
         [SerializeField] protected List<ItemScriptable> _itemScriptableList = new List<ItemScriptable>();
         [SerializeField] protected List<ShopItem> _shopItemList = new List<ShopItem>();
         
@@ -34,17 +35,13 @@ namespace BlueGravityStudios
         {
             foreach (var itemScriptable in _itemScriptableList)
             {
-                var shopItem = Instantiate(_shopItemPrefab, _shopItemContainer);
-                shopItem.SetItemScriptable(itemScriptable);
-                shopItem.CallInit();
-                _shopItemList.Add(shopItem);
+                AddItemToShop(itemScriptable);
             }
         }
 
         private void PlayerTryBuyItem(Item item)
         {
             if (item.ItemPrice > _PlayerCoins.Value) return;
-            
             BuyItem(item);
         }
 
@@ -62,7 +59,6 @@ namespace BlueGravityStudios
 
         private void RemoveItemFromList(ShopItem item)
         {
-          
             if (_shopItemList.Contains(item))
             {
                 _shopItemList.Remove(item);
@@ -72,9 +68,19 @@ namespace BlueGravityStudios
 
         protected void SellItem(Item item)
         {
-           EventManager.Trigger<Item>(PlayerEvents.RemoveItemFromInventory, item);
+            AddItemToShop(item.ItemScriptable);
+            EventManager.Trigger<InventoryItem>(PlayerEvents.RemoveItemFromInventory, (InventoryItem)item);
+            EventManager.Trigger<int>(EconomyEvents.AddCoins, item.ItemSellPrice);
         }
 
-     
+        private void AddItemToShop(ItemScriptable itemScriptable)
+        {
+            var shopItem = Instantiate(_shopItemPrefab, _shopItemContainer);
+            shopItem.SetItemScriptable(itemScriptable);
+            shopItem.CallInit();
+            _shopItemList.Add(shopItem);
+        }
+
+        public void ToggleShop(bool value) => _uiPanel.ToggleUI(value);
     }
 }

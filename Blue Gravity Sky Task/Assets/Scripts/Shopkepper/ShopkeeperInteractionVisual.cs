@@ -8,24 +8,23 @@ namespace BlueGravityStudios
     public class ShopkeeperInteractionVisual : MonoBehaviour
     {
         [SerializeField] private GameObject _interactionTooltip;
-        [SerializeField] private GameObject _npcShop;
+        [SerializeField] private Shop _npcShop;
 
         private void OnEnable()
         {
             EventManager.Register<bool>(ShopkeeperEvents.ToggleInteractionTooltip, ToggleInteractionTooltip);
-            EventManager.Register<bool>(ShopkeeperEvents.ToggleShop, ToggleShop);
+            EventManager.Register<bool>(NPCEvents.ToggleShop, ToggleShop);
         }
 
         private void OnDisable()
         {
             EventManager.Unregister<bool>(ShopkeeperEvents.ToggleInteractionTooltip, ToggleInteractionTooltip);
-            EventManager.Unregister<bool>(ShopkeeperEvents.ToggleShop, ToggleShop);
+            EventManager.Unregister<bool>(NPCEvents.ToggleShop, ToggleShop);
         }
 
         private void Awake()
         {
             ToggleInteractionTooltip(false);
-            ToggleShop(false);
         }
 
         private void ToggleInteractionTooltip(bool value)
@@ -33,9 +32,7 @@ namespace BlueGravityStudios
             _interactionTooltip.SetActive(value);
         }
 
-        private void ToggleShop(bool value)
-        {
-            _npcShop.SetActive(value);
-        }
+        public void ToggleShop(bool value) => _npcShop.ToggleShop(value);
+
     }
 }

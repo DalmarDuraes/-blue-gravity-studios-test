@@ -15,6 +15,9 @@ namespace BlueGravityStudios
         
         protected int _itemPrice;
         public int ItemPrice => _itemPrice;
+        
+        protected int _itemSellPrice;
+        public int ItemSellPrice =>_itemSellPrice;
 
         protected Sprite _itemSprite;
         public Sprite ItemSprite => _itemSprite;
@@ -35,6 +38,7 @@ namespace BlueGravityStudios
             _itemType = _itemScriptable.ItemType;
             _itemNameTxt.text = _itemName;
             _itemPriceTxt.text = _itemPrice.ToString();
+            _itemSellPrice = _itemPrice / 2;
         }
         
         public void SetItemScriptable(ItemScriptable itemScriptable) => _itemScriptable = itemScriptable;
