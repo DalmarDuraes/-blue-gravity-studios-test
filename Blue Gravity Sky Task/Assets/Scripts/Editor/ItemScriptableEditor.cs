@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace BlueGravityStudios
 {
-    [CustomEditor(typeof(ItemScriptable))]
+    [CustomEditor(typeof(ClothScriptable))]
     public class ItemScriptableEditor : Editor
     {
-        private ItemScriptable _item;
+        private ClothScriptable _item;
 
         private void OnEnable()
         {
-            _item = target as ItemScriptable;
+            _item = target as ClothScriptable;
         }
 
         public override void OnInspectorGUI()
