@@ -22,4 +22,7 @@ Additional resources:
 	
 	2D CASUAL UI
 	https://assetstore.unity.com/packages/2d/gui/icons/2d-casual-ui-hd-82080
+	
+	Mighty Heroes (Rogue) 2D Fantasy Characters Pack, made by ”Leaidan”:
+	https://assetstore.unity.com/packages/2d/characters/mighty-heroes-rogue-2d-fantasy-characters-pack-85770
 
