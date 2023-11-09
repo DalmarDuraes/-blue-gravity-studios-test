@@ -24,11 +24,7 @@ namespace BlueGravityStudios
         protected ItemType _itemType;
         public ItemType ItemType => _itemType;
 
-        private void Start()
-        {
-            Init();
-        }
-
+        public void CallInit() => Init();
         protected virtual void Init()
         {
             _itemSprite = _itemScriptable.ItemSprite;

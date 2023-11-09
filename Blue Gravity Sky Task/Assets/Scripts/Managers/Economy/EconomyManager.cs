@@ -7,9 +7,9 @@ namespace BlueGravityStudios
 {
     public class EconomyManager : MonoBehaviour
     {
-        [SerializeField] private int _startCoins;
+        [SerializeField] private Variable<int> _coin;
         private int _currentCoins;
-
+        
         private void OnEnable()
         {
             EventManager.RegisterReturn(EconomyEvents.GetCurrentCoins, GetCurrentCoins);
@@ -26,23 +26,22 @@ namespace BlueGravityStudios
 
         private void Awake()
         {
-            _currentCoins = _startCoins;
             TriggerUpdateCoinTxt();
         }
 
         private void AddCoins(int value)
         {
-            _currentCoins += value;
+            _coin.Value += value;
             TriggerUpdateCoinTxt();
         }
         
         private void ReduceCoins(int value)
         {
-            _currentCoins -= value;
+            _coin.Value -= value;
             TriggerUpdateCoinTxt();
         }
         
-        private void TriggerUpdateCoinTxt() => EventManager.Trigger<int>(EconomyEvents.UpdateCoinValueVisual, _currentCoins);
+        private void TriggerUpdateCoinTxt() => EventManager.Trigger(EconomyEvents.UpdateCoinValueVisual);
 
         private int GetCurrentCoins() => _currentCoins;
 

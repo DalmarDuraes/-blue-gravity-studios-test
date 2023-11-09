@@ -39,6 +39,7 @@ namespace BlueGravityStudios
             InventoryItem inventoryItem = Instantiate(_inventoryItemPrefab, _inventoryItemParent);
             inventoryItem.SetItemScriptable(item.ItemScriptable);
             _inventoryItemList.Add(inventoryItem);
+            inventoryItem.CallInit();
         }
     }
 }

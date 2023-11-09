@@ -9,20 +9,19 @@ namespace BlueGravityStudios
     public class EconomyVisual : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _coinTxt;
+        [SerializeField] private Variable<int> _coin;
 
         private void OnEnable()
         {
-            EventManager.Register<int>(EconomyEvents.UpdateCoinValueVisual, UpdateCoinTxt);
+            EventManager.Register(EconomyEvents.UpdateCoinValueVisual, UpdateCoinTxt);
         }
 
         private void OnDisable()
         {
-            EventManager.Unregister<int>(EconomyEvents.UpdateCoinValueVisual, UpdateCoinTxt);
+            EventManager.Unregister(EconomyEvents.UpdateCoinValueVisual, UpdateCoinTxt );
         }
 
-        private void UpdateCoinTxt(int value)
-        {
-            _coinTxt.text = $"x{value}";
-        }
+        private void UpdateCoinTxt() => _coinTxt.text = $"x{_coin.Value}";
+       
     }
 }

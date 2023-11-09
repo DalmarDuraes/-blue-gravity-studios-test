@@ -9,8 +9,9 @@ namespace BlueGravityStudios
     {
         [SerializeField] private ShopItem _shopItemPrefab;
         [SerializeField] private Transform _shopItemContainer;
+        [SerializeField] protected Variable<int> _PlayerCoins;
         [SerializeField] protected List<ItemScriptable> _itemScriptableList = new List<ItemScriptable>();
-
+        
         private void OnEnable()
         {
             EventManager.Register<Item>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
@@ -34,19 +35,15 @@ namespace BlueGravityStudios
             {
                 var shopItem = Instantiate(_shopItemPrefab, _shopItemContainer);
                 shopItem.SetItemScriptable(itemScriptable);
+                shopItem.CallInit();
             }
         }
 
         private void PlayerTryBuyItem(Item item)
         {
-            int currentCoins = 0;
-           EventManager.TriggerReturn<int>(EconomyEvents.GetCurrentCoins, GetCurrentCoins );
-           
-           void GetCurrentCoins(int value) => currentCoins = value;
-
-           if (item.ItemPrice > currentCoins) return;
-           
-           BuyItem(item);
+            if (item.ItemPrice > _PlayerCoins.Value) return;
+            
+            BuyItem(item);
         }
 
         private void PlayerTrySellItem(Item item)
