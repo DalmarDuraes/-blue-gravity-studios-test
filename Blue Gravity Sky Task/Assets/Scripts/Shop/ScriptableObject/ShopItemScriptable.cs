@@ -18,9 +18,3 @@ namespace BlueGravityStudios
     }
 }
 
-public enum ItemType
-{
-    Hood,
-    Shoulder,
-    
-}
