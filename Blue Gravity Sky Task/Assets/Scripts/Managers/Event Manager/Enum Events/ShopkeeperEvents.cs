@@ -1,5 +1,6 @@
 public enum ShopkeeperEvents
 {
-    ToggleBalloonVisualFeedback,
-    
+    ToggleInteractionTooltip,
+    ToggleShop,
+    CloseShop,
 }

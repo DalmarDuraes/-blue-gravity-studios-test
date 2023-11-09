@@ -14,6 +14,7 @@ namespace BlueGravityStudios
         [SerializeField] private float _minDistanceToInteract;
 
         [SerializeField] private bool _canInteract;
+        [SerializeField] private bool _isShopOpen;
 
         private void OnEnable()
         {
@@ -38,26 +39,35 @@ namespace BlueGravityStudios
             if (!CheckIfCanEnableInteraction())
             {
                 if (!_canInteract) return;
-                HandleInteraction(false);
+                ToggleInteractionTooltip(false);
             }
 
             else
             {
                 if (_canInteract) return;
-                HandleInteraction(true);
+                ToggleInteractionTooltip(true);
             }
 
         }
 
-        private void HandleInteraction(bool value)
+        private void ToggleInteractionTooltip(bool value)
         {
             _canInteract = value;
-            EventManager.Trigger(ShopkeeperEvents.ToggleBalloonVisualFeedback,value);
+            EventManager.Trigger(ShopkeeperEvents.ToggleInteractionTooltip,value);
         }
         public void Interact()
         {
             if (!_canInteract) return;
-            Debug.Log("a");
+
+            OpenShop();
+        }
+
+        private void OpenShop()
+        {
+            if (_isShopOpen) return;
+            
+            _isShopOpen = true;
+            EventManager.Trigger<bool>(ShopkeeperEvents.ToggleShop, true);
         }
 
         private float CalculateDistanceFromPlayer()

@@ -5,25 +5,36 @@ using UnityEngine;
 
 public class ShopkeeperInteractionVisual : MonoBehaviour
 {
-    [SerializeField] private GameObject _interactionBalloonVisualFeedback;
+    [SerializeField] private GameObject _interactionTooltip;
+    [SerializeField] private GameObject _npcShop;
 
     private void OnEnable()
     {
-        EventManager.Register<bool>(ShopkeeperEvents.ToggleBalloonVisualFeedback, ToggleVisual);
+        EventManager.Register<bool>(ShopkeeperEvents.ToggleInteractionTooltip, ToggleInteractionTooltip);
+        EventManager.Register<bool>(ShopkeeperEvents.ToggleShop, ToggleShop);
     }
 
     private void OnDisable()
     {
-        EventManager.Unregister<bool>(ShopkeeperEvents.ToggleBalloonVisualFeedback, ToggleVisual);
+        EventManager.Unregister<bool>(ShopkeeperEvents.ToggleInteractionTooltip, ToggleInteractionTooltip);
+        EventManager.Unregister<bool>(ShopkeeperEvents.ToggleShop, ToggleShop);
     }
 
     private void Awake()
     {
-        ToggleVisual(false);
+        ToggleInteractionTooltip(false);
+        ToggleShop(false);
     }
 
-    private void ToggleVisual(bool value)
+    private void ToggleInteractionTooltip(bool value)
     {
-        _interactionBalloonVisualFeedback.SetActive(value);
+        _interactionTooltip.SetActive(value);
     }
+
+    private void ToggleShop(bool value)
+    {
+        _npcShop.SetActive(value);
+    }
+    
+   
 }

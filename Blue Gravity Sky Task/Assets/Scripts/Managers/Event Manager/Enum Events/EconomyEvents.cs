@@ -1,0 +1,4 @@
+public enum EconomyEvents
+{
+    UpdateCoinValueVisual,
+}
