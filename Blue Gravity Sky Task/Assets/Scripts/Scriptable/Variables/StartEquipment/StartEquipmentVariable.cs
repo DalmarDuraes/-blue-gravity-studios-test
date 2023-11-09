@@ -6,7 +6,7 @@ namespace BlueGravityStudios
 {
 
     [CreateAssetMenu(fileName = "New Start Equipment Variable", menuName = "Variable/StartEquipment")]
-    public class StartEquipmentVariable : Variable<EquipmentStruct>
+    public class StartEquipmentVariable : Variable<ClothStruct>
     {
     }
 }

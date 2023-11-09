@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StartEquipment
   m_EditorClassIdentifier: 
   DefaultValue:
-    _hood: {fileID: 11400000, guid: 491ecd25ecedf0540a0115794bf79700, type: 2}
-    _shoulder: {fileID: 11400000, guid: ae96cb45969125d4288d4a03b0961fc0, type: 2}
-    _top: {fileID: 11400000, guid: 888fc8c7cff83f3449a13d2d1f63c1ea, type: 2}
-    _botton: {fileID: 11400000, guid: 588ae40f879b54348988b161ccdf65ce, type: 2}
+    Hood: {fileID: 11400000, guid: 491ecd25ecedf0540a0115794bf79700, type: 2}
+    Shoulder: {fileID: 11400000, guid: ae96cb45969125d4288d4a03b0961fc0, type: 2}
+    Top: {fileID: 11400000, guid: 888fc8c7cff83f3449a13d2d1f63c1ea, type: 2}
+    Bottom: {fileID: 11400000, guid: 588ae40f879b54348988b161ccdf65ce, type: 2}

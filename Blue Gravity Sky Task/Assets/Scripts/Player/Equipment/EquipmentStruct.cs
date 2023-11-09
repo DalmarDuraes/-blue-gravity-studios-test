@@ -6,11 +6,11 @@ using UnityEngine;
 namespace BlueGravityStudios
 {
     [Serializable]
-    public struct EquipmentStruct
+    public struct ClothStruct
     {
-        [SerializeField] private ItemScriptable _hood;
-        [SerializeField] private ItemScriptable _shoulder;
-        [SerializeField] private ItemScriptable _top;
-        [SerializeField] private ItemScriptable _botton;
+        public ClothScriptable Hood;
+        public ClothScriptable Shoulder;
+        public ClothScriptable Top;
+        public ClothScriptable Bottom;
     }
 }
