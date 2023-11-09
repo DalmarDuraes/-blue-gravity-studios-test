@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.5, y: -8.3}
+  m_AnchoredPosition: {x: 7.5, y: -32.2}
   m_SizeDelta: {x: 304.5714, y: 304.5714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7077532207149403983
@@ -381,8 +381,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -9.7, y: 38.6}
-  m_SizeDelta: {x: 151.2994, y: 47.5419}
+  m_AnchoredPosition: {x: 8.5, y: 33.898968}
+  m_SizeDelta: {x: 129.1898, y: 40.5945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1859006792393144577
 CanvasRenderer:
@@ -439,8 +439,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 33
+  m_fontSizeBase: 33
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -652,8 +652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000023842, y: -93.5}
-  m_SizeDelta: {x: 192.7, y: 57.9972}
+  m_AnchoredPosition: {x: -0.00000095367, y: -103.4344}
+  m_SizeDelta: {x: 171.6644, y: 51.6661}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3221355924574571490
 CanvasRenderer:
@@ -728,8 +728,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 37.212, y: 36.0222}
-  m_SizeDelta: {x: 36.3096, y: 36.3098}
+  m_AnchoredPosition: {x: 27, y: 32}
+  m_SizeDelta: {x: 31.0036, y: 31.0038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7038554933663152176
 CanvasRenderer:
@@ -810,7 +810,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -25.542786, y: 41.69232}
-  m_SizeDelta: {x: 240, y: 310}
+  m_SizeDelta: {x: 240, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6711610830969757293
 CanvasRenderer:
@@ -863,5 +863,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemNameTxt: {fileID: 5820179069856906290}
-  _shopImage: {fileID: 1049321651216060402}
   _itemPriceTxt: {fileID: 1583175720017681634}
+  _shopImage: {fileID: 1049321651216060402}
