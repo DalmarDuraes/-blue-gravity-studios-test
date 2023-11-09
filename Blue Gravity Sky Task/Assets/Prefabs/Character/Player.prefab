@@ -158,8 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentEquipments:
     _hood: {fileID: 0}
-    _shoulderL: {fileID: 0}
-    _shoulderR: {fileID: 0}
+    _shoulder: {fileID: 0}
     _top: {fileID: 0}
     _botton: {fileID: 0}
 --- !u!1001 &1147961493382586146
