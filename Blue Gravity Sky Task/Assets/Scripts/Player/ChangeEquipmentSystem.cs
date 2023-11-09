@@ -24,24 +24,24 @@ namespace BlueGravityStudios
 
         private void ChangeEquipment(InventoryItem inventoryItem)
         {
-            switch (inventoryItem.ItemType)
-            {
-                case ItemType.Hood:
-                    _currentHood = inventoryItem.ItemSprite;
-                    _hood.sprite = _currentHood;
-                    
-                    break;
-                case ItemType.Shoulder:
-                    _currentShoulderL = inventoryItem.ItemSprite;
-                    _currentShoulderR = inventoryItem.SecondaryItemSprite;
-                    _shoulderL.sprite = _currentShoulderL;
-                    _shoulderR.sprite = _currentShoulderR;
-                    
-                    break;
-                default:
-                    Debug.LogError($"Did not found item type: {inventoryItem.ItemType}");
-                        break;
-            }
+           // switch (inventoryItem.ItemType)
+           // {
+           //     case ItemType.Hood:
+           //         _currentHood = inventoryItem.ItemSprite;
+           //         _hood.sprite = _currentHood;
+           //         
+           //         break;
+           //     case ItemType.Shoulder:
+           //         _currentShoulderL = inventoryItem.ItemSprite;
+           //         _currentShoulderR = inventoryItem.SecondaryItemSprite;
+           //         _shoulderL.sprite = _currentShoulderL;
+           //         _shoulderR.sprite = _currentShoulderR;
+           //         
+           //         break;
+           //     default:
+           //         Debug.LogError($"Did not found item type: {inventoryItem.ItemType}");
+           //             break;
+           // }
         }
     }
 }

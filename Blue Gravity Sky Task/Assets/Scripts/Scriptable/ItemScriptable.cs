@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace BlueGravityStudios
 {
-    [CreateAssetMenu(fileName = "New Shop Item", menuName = "Shop Item/Item")]
-    public class ItemScriptable : ScriptableObject
+    public abstract class ItemScriptable : ScriptableObject
     {
         public Sprite ItemSprite;
         public Sprite SecondaryItemSprite;
         public String ItemName;
         public int ItemPrice;
-        public ItemType ItemType;
+        public ItemType ItemType { get; protected set; }
 
+     
     }
 }
 

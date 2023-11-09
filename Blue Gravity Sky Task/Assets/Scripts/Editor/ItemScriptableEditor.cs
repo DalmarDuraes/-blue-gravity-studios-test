@@ -6,7 +6,7 @@ using UnityEngine;
 namespace BlueGravityStudios
 {
     [CustomEditor(typeof(ItemScriptable))]
-    public class ShopItemScriptableEditor : Editor
+    public class ItemScriptableEditor : Editor
     {
         private ItemScriptable _item;
 
