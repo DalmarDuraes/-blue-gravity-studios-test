@@ -9,8 +9,7 @@ namespace BlueGravityStudios
     public struct EquipmentStruct
     {
         [SerializeField] private ItemScriptable _hood;
-        [SerializeField] private ItemScriptable _shoulderL;
-        [SerializeField] private ItemScriptable _shoulderR;
+        [SerializeField] private ItemScriptable _shoulder;
         [SerializeField] private ItemScriptable _top;
         [SerializeField] private ItemScriptable _botton;
     }

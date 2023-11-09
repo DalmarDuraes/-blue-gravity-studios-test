@@ -7,4 +7,6 @@ public enum ClothType
 {
     Hood,
     Shoulder,
+    Top,
+    Bottom,
 }

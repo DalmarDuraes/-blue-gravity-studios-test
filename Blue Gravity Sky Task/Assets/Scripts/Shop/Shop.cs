@@ -13,7 +13,8 @@ namespace BlueGravityStudios
         [SerializeField] protected Variable<int> _PlayerCoins;
         [SerializeField] private UIPanel _uiPanel;
         [SerializeField] protected List<ItemScriptable> _itemScriptableList = new List<ItemScriptable>();
-        [SerializeField] protected List<ShopItem> _shopItemList = new List<ShopItem>();
+        
+        protected List<ShopItem> _shopItemList = new List<ShopItem>();
         private bool _isOpen;
 
         private void OnEnable()
