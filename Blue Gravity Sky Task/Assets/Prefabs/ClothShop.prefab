@@ -656,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599e69189add6a34386d96f3b2b59617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activeOnStartup: 0
 --- !u!1 &4919261449663928178
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,9 +824,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6807d6a2c3ff845a6d5b171ee24a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shopItemPrefab: {fileID: 6638291780501974362, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
+  _shopItemPrefab: {fileID: 6236850623310119503, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
   _shopItemContainer: {fileID: 610062485}
   _PlayerCoins: {fileID: 11400000, guid: 477bd03ef33a0c1489426f5540ec0001, type: 2}
+  _uiPanel: {fileID: 9043042641298737338}
   _itemScriptableList:
   - {fileID: 11400000, guid: 8deb6dd692d345344bcc00e9f15441cf, type: 2}
   - {fileID: 11400000, guid: af507c6d3c05e7a4fa7b630a14408b29, type: 2}

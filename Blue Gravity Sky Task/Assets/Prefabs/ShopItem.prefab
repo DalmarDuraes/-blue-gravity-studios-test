@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7077532207149403983}
   - component: {fileID: 1049321651216060402}
   m_Layer: 5
-  m_Name: ShopSprite
+  m_Name: InventorySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 3476077193053426860}
   - component: {fileID: 1617500544721797284}
   m_Layer: 5
-  m_Name: BuyTXT
+  m_Name: BUYTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 1859006792393144577}
   - component: {fileID: 1583175720017681634}
   m_Layer: 5
-  m_Name: PriceTxt
+  m_Name: SellPriceTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6638291780501974362}
+      - m_Target: {fileID: 6236850623310119503}
         m_TargetAssemblyTypeName: BlueGravityStudios.ShopItem, Assembly-CSharp
         m_MethodName: BuyItem
         m_Mode: 1
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 6711610830969757282}
   - component: {fileID: 6711610830969757293}
   - component: {fileID: 6711610830969757292}
-  - component: {fileID: 6638291780501974362}
+  - component: {fileID: 6236850623310119503}
   m_Layer: 5
   m_Name: ShopItem
   m_TagString: Untagged
@@ -795,7 +795,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6711610830969757281}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6638291780501974362
+--- !u!114 &6236850623310119503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
