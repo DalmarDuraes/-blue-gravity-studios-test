@@ -15,5 +15,5 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 57e9977661e6a7246b75c2de487e5bb3, type: 3}
   SecondaryItemSprite: {fileID: 21300000, guid: a471110b5fe3bcc4caff7ad9ff13d244, type: 3}
   ItemName: Green Shoulder
-  ItemPrice: 100
+  ItemPrice: 50
   ItemType: 1
