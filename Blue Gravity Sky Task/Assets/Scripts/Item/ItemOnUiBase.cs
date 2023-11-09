@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BlueGravityStudios
 {
-    public class Item : MonoBehaviour
+    public class ItemOnUiBase : MonoBehaviour
     {
         [SerializeField] protected TextMeshProUGUI _itemNameTxt;
         [SerializeField] protected TextMeshProUGUI _itemPriceTxt;
         protected string _itemName;
         protected ItemScriptable _itemScriptable;
         public ItemScriptable ItemScriptable => _itemScriptable;
+        [SerializeField] private Image _itemSpriteOnUi;
         
         protected int _itemPrice;
         public int ItemPrice => _itemPrice;
@@ -39,6 +41,7 @@ namespace BlueGravityStudios
             _itemNameTxt.text = _itemName;
             _itemPriceTxt.text = _itemPrice.ToString();
             _itemSellPrice = _itemPrice / 2;
+            _itemSpriteOnUi.sprite = _itemSprite;
         }
         
         public void SetItemScriptable(ItemScriptable itemScriptable) => _itemScriptable = itemScriptable;

@@ -6,24 +6,21 @@ using UnityEngine.UI;
 
 namespace BlueGravityStudios
 {
-    public class InventoryItem : Item
+    public class InventoryItem: ItemOnUiBase
     {
-        [SerializeField] private Image _inventoryImage;
-      
         protected override void Init()
         {
             base.Init();
-            _inventoryImage.sprite = _itemSprite;
             _itemPriceTxt.text = _itemSellPrice.ToString();
         }
 
         public void SellItem()
         {
-            EventManager.Trigger<Item>(EconomyEvents.SellItem, this);
+            EventManager.Trigger<ItemOnUiBase>(EconomyEvents.SellItem, this);
         }
         public void TryEquipItem()
         {
-            EventManager.Trigger<Item>(PlayerEvents.EquipItem, this);
+            EventManager.Trigger<ItemOnUiBase>(PlayerEvents.EquipItem, this);
         }
 
     }

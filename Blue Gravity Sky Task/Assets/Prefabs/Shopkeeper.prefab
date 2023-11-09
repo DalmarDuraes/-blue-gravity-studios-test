@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minDistanceToInteract: 2
   _canInteract: 0
-  _isShopOpen: 0
+  _shopkeeperInteractionVisual: {fileID: 1503170722}
 --- !u!1 &5331771605479944000
 GameObject:
   m_ObjectHideFlags: 0

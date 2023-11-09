@@ -14,16 +14,16 @@ namespace BlueGravityStudios
         [SerializeField] private float _minDistanceToInteract;
 
         [SerializeField] private bool _canInteract;
-        [SerializeField] private bool _isShopOpen;
+        [SerializeField] private ShopkeeperInteractionVisual _shopkeeperInteractionVisual;
 
         private void OnEnable()
         {
-            EventManager.Register(PlayerEvents.PlayerPressedNpcInteraction, Interact);
+            EventManager.Register(PlayerEvents.PlayerInputNpcInteraction, Interact);
         }
 
         private void OnDisable()
         {
-            EventManager.Unregister(PlayerEvents.PlayerPressedNpcInteraction, Interact);
+            EventManager.Unregister(PlayerEvents.PlayerInputNpcInteraction, Interact);
         }
 
         private void Start()
@@ -53,31 +53,20 @@ namespace BlueGravityStudios
         private void ToggleInteractionTooltip(bool value)
         {
             _canInteract = value;
-            EventManager.Trigger(ShopkeeperEvents.ToggleInteractionTooltip,value);
+            _shopkeeperInteractionVisual.ToggleInteractionTooltip(value);
         }
         public void Interact()
         {
             if (!_canInteract) return;
-
-            OpenShop();
-        }
-
-        private void OpenShop()
-        {
-            if (_isShopOpen) return;
             
-            _isShopOpen = true;
-            EventManager.Trigger<bool>(NPCEvents.ToggleShop, true);
+            CallOpenShop();
         }
 
-        private void CloseShop()
+        private void CallOpenShop()
         {
-            if (!_isShopOpen) return;
-            
-            _isShopOpen = false;
-            EventManager.Trigger<bool>(NPCEvents.ToggleShop, false);
+            _shopkeeperInteractionVisual.OpenShop();
         }
-
+        
         private float CalculateDistanceFromPlayer()
         {
             if (!_player) RequestPlayer();

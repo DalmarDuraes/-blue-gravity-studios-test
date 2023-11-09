@@ -587,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6711610830969757282, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 310
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 6711610830969757282, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
       propertyPath: m_LocalPosition.x
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemNameTxt: {fileID: 960634580466657295}
   _itemPriceTxt: {fileID: 5217741110897363167}
-  _inventoryImage: {fileID: 5989297619888511951}
+  _itemSpriteOnUi: {fileID: 5901074998076596253}
 --- !u!224 &51189366236498527 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6711610830969757282, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
@@ -687,9 +687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5989297619888511951 stripped
+--- !u!114 &5901074998076596253 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1049321651216060402, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
+  m_CorrespondingSourceObject: {fileID: 897736377605256224, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
   m_PrefabInstance: {fileID: 6742365867470754877}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

@@ -7,20 +7,11 @@ using UnityEngine.UI;
 
 namespace BlueGravityStudios
 {
-    public class ShopItem : Item
+    public class ShopItem: ItemOnUiBase
     {
-        [SerializeField] private Image _shopImage;
-     
-      
-        protected override void Init()
-        {
-            base.Init();
-            _shopImage.sprite = _itemSprite;
-        }
-
         public void BuyItem()
         {
-            EventManager.Trigger<Item>(EconomyEvents.TryBuyItem, this);
+            EventManager.Trigger<ItemOnUiBase>(EconomyEvents.TryBuyItem, this);
         }
     }
 

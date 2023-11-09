@@ -2,28 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BlueGravityStudios
 {
     public class Shop : MonoBehaviour
     {
-        [SerializeField] private ShopItem _shopItemPrefab;
+        [FormerlySerializedAs("_shopItemPrefab")] [SerializeField] private ShopItem shopItemOnUiBasePrefab;
         [SerializeField] private Transform _shopItemContainer;
         [SerializeField] protected Variable<int> _PlayerCoins;
         [SerializeField] private UIPanel _uiPanel;
         [SerializeField] protected List<ItemScriptable> _itemScriptableList = new List<ItemScriptable>();
         [SerializeField] protected List<ShopItem> _shopItemList = new List<ShopItem>();
-        
+        private bool _isOpen;
+
         private void OnEnable()
         {
-            EventManager.Register<Item>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
-            EventManager.Register<Item>(EconomyEvents.SellItem, PlayerTrySellItem);
+            EventManager.Register<ItemOnUiBase>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
+            EventManager.Register<ItemOnUiBase>(EconomyEvents.SellItem, PlayerTrySellItem);
         }
 
         private void OnDisable()
         {
-            EventManager.Unregister<Item>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
-            EventManager.Unregister<Item>(EconomyEvents.SellItem, PlayerTrySellItem);
+            EventManager.Unregister<ItemOnUiBase>(EconomyEvents.TryBuyItem, PlayerTryBuyItem);
+            EventManager.Unregister<ItemOnUiBase>(EconomyEvents.SellItem, PlayerTrySellItem);
         }
         
         private void Awake()
@@ -39,48 +41,60 @@ namespace BlueGravityStudios
             }
         }
 
-        private void PlayerTryBuyItem(Item item)
+        private void PlayerTryBuyItem(ItemOnUiBase itemOnUiBase)
         {
-            if (item.ItemPrice > _PlayerCoins.Value) return;
-            BuyItem(item);
+            if (itemOnUiBase.ItemPrice > _PlayerCoins.Value) return;
+            BuyItem(itemOnUiBase);
         }
 
-        private void PlayerTrySellItem(Item item)
+        private void PlayerTrySellItem(ItemOnUiBase itemOnUiBase)
         {
-            SellItem(item);
+            SellItem(itemOnUiBase);
         }
 
-        private void BuyItem(Item item)
+        private void BuyItem(ItemOnUiBase itemOnUiBase)
         {
-           EventManager.Trigger<Item>(PlayerEvents.AddItemToInventory, item);
-           EventManager.Trigger<int>(EconomyEvents.ReduceCoins, item.ItemPrice);
-           RemoveItemFromList((ShopItem)item);
+           EventManager.Trigger<ItemOnUiBase>(PlayerEvents.AddItemToInventory, itemOnUiBase);
+           EventManager.Trigger<int>(EconomyEvents.ReduceCoins, itemOnUiBase.ItemPrice);
+           RemoveItemFromList((ShopItem)itemOnUiBase);
         }
 
-        private void RemoveItemFromList(ShopItem item)
+        private void RemoveItemFromList(ShopItem itemOnUiBase)
         {
-            if (_shopItemList.Contains(item))
+            if (_shopItemList.Contains(itemOnUiBase))
             {
-                _shopItemList.Remove(item);
-                item.Disable();
+                _shopItemList.Remove(itemOnUiBase);
+                itemOnUiBase.Disable();
             }
         }
 
-        protected void SellItem(Item item)
+        protected void SellItem(ItemOnUiBase itemOnUiBase)
         {
-            AddItemToShop(item.ItemScriptable);
-            EventManager.Trigger<InventoryItem>(PlayerEvents.RemoveItemFromInventory, (InventoryItem)item);
-            EventManager.Trigger<int>(EconomyEvents.AddCoins, item.ItemSellPrice);
+            AddItemToShop(itemOnUiBase.ItemScriptable);
+            EventManager.Trigger<InventoryItem>(PlayerEvents.RemoveItemFromInventory, (InventoryItem)itemOnUiBase);
+            EventManager.Trigger<int>(EconomyEvents.AddCoins, itemOnUiBase.ItemSellPrice);
         }
 
         private void AddItemToShop(ItemScriptable itemScriptable)
         {
-            var shopItem = Instantiate(_shopItemPrefab, _shopItemContainer);
+            var shopItem = Instantiate(shopItemOnUiBasePrefab, _shopItemContainer);
             shopItem.SetItemScriptable(itemScriptable);
             shopItem.CallInit();
             _shopItemList.Add(shopItem);
         }
 
-        public void ToggleShop(bool value) => _uiPanel.ToggleUI(value);
+        public void TryToggleShop(bool value)
+        {
+            if (value == _isOpen) return; 
+            ToggleShop(value);
+        }
+
+
+        private void ToggleShop(bool value)
+        {
+            _isOpen = value;
+            EventManager.Trigger<bool>(NPCEvents.ToggleShop, _isOpen); 
+            _uiPanel.ToggleUI(value);
+        }
     }
 }

@@ -8,7 +8,11 @@ namespace BlueGravityStudios
      {
           public void HandleInteract()
           {
-               EventManager.Trigger(PlayerEvents.PlayerPressedNpcInteraction);
+               EventManager.Trigger(PlayerEvents.PlayerInputNpcInteraction);
+          }
+          public void ToggleInventory()
+          {
+               EventManager.Trigger(PlayerEvents.PlayerInputToggleInventory);
           }
      }
 }

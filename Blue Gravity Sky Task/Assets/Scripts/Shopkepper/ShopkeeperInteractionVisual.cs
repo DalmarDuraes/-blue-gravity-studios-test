@@ -9,30 +9,19 @@ namespace BlueGravityStudios
     {
         [SerializeField] private GameObject _interactionTooltip;
         [SerializeField] private Shop _npcShop;
-
-        private void OnEnable()
-        {
-            EventManager.Register<bool>(ShopkeeperEvents.ToggleInteractionTooltip, ToggleInteractionTooltip);
-            EventManager.Register<bool>(NPCEvents.ToggleShop, ToggleShop);
-        }
-
-        private void OnDisable()
-        {
-            EventManager.Unregister<bool>(ShopkeeperEvents.ToggleInteractionTooltip, ToggleInteractionTooltip);
-            EventManager.Unregister<bool>(NPCEvents.ToggleShop, ToggleShop);
-        }
-
         private void Awake()
         {
             ToggleInteractionTooltip(false);
         }
 
-        private void ToggleInteractionTooltip(bool value)
+        public void ToggleInteractionTooltip(bool value)
         {
             _interactionTooltip.SetActive(value);
         }
 
-        public void ToggleShop(bool value) => _npcShop.ToggleShop(value);
-
+        public void OpenShop()
+        {
+            _npcShop.TryToggleShop(true);
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace BlueGravityStudios
             _currentShoulderR = _shoulderR.sprite;
         }
 
-        private void ChangeEquipment(InventoryItem inventoryItem)
+        private void ChangeEquipment(InventoryItem inventoryItemOnUiBase)
         {
            // switch (inventoryItem.ItemType)
            // {
