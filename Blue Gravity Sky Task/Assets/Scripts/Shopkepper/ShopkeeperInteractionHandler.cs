@@ -59,12 +59,12 @@ namespace BlueGravityStudios
         {
             if (!_canInteract) return;
             
-            CallOpenShop();
+            TryToggleShop();
         }
 
-        private void CallOpenShop()
+        private void TryToggleShop()
         {
-            _shopkeeperInteractionVisual.OpenShop();
+            _shopkeeperInteractionVisual.TryToggleShop();
         }
         
         private float CalculateDistanceFromPlayer()

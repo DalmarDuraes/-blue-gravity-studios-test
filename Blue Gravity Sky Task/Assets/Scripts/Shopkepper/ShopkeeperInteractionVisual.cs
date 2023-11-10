@@ -19,9 +19,9 @@ namespace BlueGravityStudios
             _interactionTooltip.SetActive(value);
         }
 
-        public void OpenShop()
+        public void TryToggleShop()
         {
-            _npcShop.TryToggleShop(true);
+            _npcShop.TryToggleShop();
         }
     }
 }

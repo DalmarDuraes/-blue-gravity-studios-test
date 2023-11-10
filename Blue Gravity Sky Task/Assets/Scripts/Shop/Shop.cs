@@ -86,10 +86,10 @@ namespace BlueGravityStudios
             _shopItemList.Add(shopItem);
         }
 
-        public void TryToggleShop(bool value)
+        public void TryToggleShop()
         {
-            if (value == _isOpen) return; 
-            ToggleShop(value);
+            _isOpen = !_isOpen;
+            ToggleShop(_isOpen);
         }
 
 
