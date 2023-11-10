@@ -5,7 +5,6 @@ Softwares:
 	Engine: Unity version 2021.3.2f1
 	IDE: JetBrains Rider 2022.3.1
 
-
 Resolution:
 	1920x1080
 
@@ -30,3 +29,6 @@ Sound:
 422720__grubzyy__a_dungeon_ambience_loop from "Grubzyy"
 https://freesound.org/people/Grubzyy/sounds/422720/
 
+
+NOTE:
+Executable diretory: \Blue Gravity Sky Task\Build
