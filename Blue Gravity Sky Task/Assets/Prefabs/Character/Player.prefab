@@ -157,7 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6ace0841e56b64cbc57ba7b015fb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _starClothtEquipment: {fileID: 11400000, guid: f0a3ff03742efbe44988ced7196fc961, type: 2}
+  _starClothEquipment: {fileID: 11400000, guid: f0a3ff03742efbe44988ced7196fc961, type: 2}
+  _currentClothEquipment: {fileID: 11400000, guid: e026b72ee7a4f84429fc7527b80ff928, type: 2}
 --- !u!114 &4690084436277701688
 MonoBehaviour:
   m_ObjectHideFlags: 0

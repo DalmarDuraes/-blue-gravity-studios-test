@@ -2,16 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BlueGravityStudios
 {
     public class PlayerEquipment : MonoBehaviour
     {
-        [SerializeField] protected Variable<ClothStruct> _starClothtEquipment;
+        [SerializeField] protected Variable<ClothStruct> _starClothEquipment;
+        [SerializeField] protected Variable<ClothStruct> _currentClothEquipment;
+        private ClothStruct _currentClothStruct = new ClothStruct();
         private PlayerEquipmentChanger _playerEquipmentChanger;
         private bool _starterEquipmentBlocked;
         private List<ItemScriptable> _allEquippedEquipment = new List<ItemScriptable>();
-        
+
         private void Awake()
         {
             _playerEquipmentChanger = GetComponent<PlayerEquipmentChanger>();
@@ -25,22 +28,23 @@ namespace BlueGravityStudios
         private void Start()
         {
             if (_starterEquipmentBlocked) return;
+            
             AddStartEquipmentToInventory();
         }
 
         private void CheckStartEquipment()
         {
-            if (_starClothtEquipment.Value.Hood.ClothType != ClothType.Hood) 
-                EquipmentError(_starClothtEquipment.Value.Hood);
+            if (_starClothEquipment.Value.Hood.ClothType != ClothType.Hood) 
+                EquipmentError(_starClothEquipment.Value.Hood);
             
-            else if(_starClothtEquipment.Value.Shoulder.ClothType != ClothType.Shoulder)
-                EquipmentError(_starClothtEquipment.Value.Shoulder);
+            else if(_starClothEquipment.Value.Shoulder.ClothType != ClothType.Shoulder)
+                EquipmentError(_starClothEquipment.Value.Shoulder);
             
-            else if(_starClothtEquipment.Value.Top.ClothType != ClothType.Top) 
-                EquipmentError(_starClothtEquipment.Value.Top);
+            else if(_starClothEquipment.Value.Top.ClothType != ClothType.Top) 
+                EquipmentError(_starClothEquipment.Value.Top);
             
-            else if (_starClothtEquipment.Value.Bottom.ClothType != ClothType.Bottom)
-                EquipmentError(_starClothtEquipment.Value.Bottom);
+            else if (_starClothEquipment.Value.Bottom.ClothType != ClothType.Bottom)
+                EquipmentError(_starClothEquipment.Value.Bottom);
 
             else
                 SetPlayerStartEquipment();
@@ -49,12 +53,14 @@ namespace BlueGravityStudios
         private void SetPlayerStartEquipment()
         {
             if (_playerEquipmentChanger)
-            
             {
-                _allEquippedEquipment.Add(_starClothtEquipment.Value.Hood);
-                _allEquippedEquipment.Add(_starClothtEquipment.Value.Shoulder);
-                _allEquippedEquipment.Add(_starClothtEquipment.Value.Top);
-                _allEquippedEquipment.Add(_starClothtEquipment.Value.Bottom);
+                _currentClothStruct = _starClothEquipment.Value;
+                _currentClothEquipment.Value = _currentClothStruct;
+                
+                _allEquippedEquipment.Add(_currentClothStruct.Hood);
+                _allEquippedEquipment.Add(_currentClothStruct.Shoulder);
+                _allEquippedEquipment.Add(_currentClothStruct.Top);
+                _allEquippedEquipment.Add(_currentClothStruct.Bottom);
 
                 foreach (var item in _allEquippedEquipment)
                 {
@@ -77,8 +83,6 @@ namespace BlueGravityStudios
             Debug.LogError($"$error setting equipment");
         }
 
-     
-    
     }
 }
 

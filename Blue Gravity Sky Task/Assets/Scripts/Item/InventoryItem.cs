@@ -10,6 +10,7 @@ namespace BlueGravityStudios
     {
         [SerializeField] private GameObject _sellBtn;
         [SerializeField] private GameObject _equipItemBtn;
+        [SerializeField] private GameObject _equippedItemBtn;
         [SerializeField] private GameObject _pricePanel;
         
         protected override void Init()
@@ -27,19 +28,37 @@ namespace BlueGravityStudios
             EventManager.Trigger<Item>(PlayerEvents.EquipItem, this);
         }
 
-        public void ActiveEquipBtn()
+        public void ActiveEquipBtn(bool alreadyEquipped)
         {
             
-            _equipItemBtn.SetActive(true);
-            _sellBtn.SetActive(false);
+            _sellBtn.gameObject.SetActive(false);
             _pricePanel.SetActive(false);
+
+            Debug.Log(alreadyEquipped);
+            if (alreadyEquipped)
+            {
+                _equipItemBtn.SetActive(false);
+                _equippedItemBtn.SetActive(true);
+            }
+            else
+            {
+                _equipItemBtn.SetActive(true);
+                _equippedItemBtn.SetActive(false);
+                
+            }
         }
         
-        public void ActiveSellBtn()
+        public void ActiveSellBtn(bool alreadyEquipped)
         {
+            _equippedItemBtn.SetActive(false);
             _equipItemBtn.SetActive(false);
             _sellBtn.SetActive(true);
             _pricePanel.SetActive(true);
+            if (alreadyEquipped)
+            {
+                _sellBtn.SetActive(false);
+                _equippedItemBtn.SetActive(true);
+            }
 
         }
 

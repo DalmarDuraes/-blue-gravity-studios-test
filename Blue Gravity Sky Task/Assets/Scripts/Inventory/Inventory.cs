@@ -16,6 +16,7 @@ namespace BlueGravityStudios
         
         [SerializeField] private List<InventoryItem> _inventoryItemList = new List<InventoryItem>();
         public List<InventoryItem> InventoryItemList => _inventoryItemList;
+        [SerializeField] protected Variable<ClothStruct> _currentClothEquipment;
         
         private bool _isOpen;
         private bool _isBlockedByOpenShop;
@@ -37,8 +38,6 @@ namespace BlueGravityStudios
             EventManager.Unregister<bool>(NPCEvents.ToggleShop, OnAnyShopToggled);
             EventManager.Unregister(PlayerEvents.PlayerInputToggleInventory, PlayerInputToggleInventory);
         }
-
-       
 
         private void OnAnyShopToggled(bool value)
         {
@@ -70,16 +69,14 @@ namespace BlueGravityStudios
 
         private void InstantiateNewInventoryItem(Item item)
         {
-            InventoryItem inventoryItem= Instantiate(_inventoryItemPrefab, _inventoryItemParent);
-            inventoryItem.SetItemScriptable(item.ItemScriptable);
-            _inventoryItemList.Add(inventoryItem);
-            inventoryItem.CallInit();
+            InstantiateNewInventoryItemBySO(item.ItemScriptable);
         }
         private void InstantiateNewInventoryItemBySO(ItemScriptable itemSO)
         {
             InventoryItem inventoryItem= Instantiate(_inventoryItemPrefab, _inventoryItemParent);
             inventoryItem.SetItemScriptable(itemSO);
             _inventoryItemList.Add(inventoryItem);
+            inventoryItem.transform.SetAsFirstSibling();
             inventoryItem.CallInit();
         }
         
@@ -104,6 +101,42 @@ namespace BlueGravityStudios
             _uiPanel.ToggleUI(value, openedByPlayer);
         }
 
-       
+
+        public bool CheckIfItemIsEquipped(InventoryItem item)
+        {
+            switch (item.ItemType)
+            {
+                case ItemType.Cloth:
+                        return CheckIfClothIsEquipped((ClothScriptable)item.ItemScriptable);
+                default:
+                    break;
+            }
+
+            return false;
+        }
+
+        private bool CheckIfClothIsEquipped(ClothScriptable clothScriptable)
+        {
+           Debug.Log(_currentClothEquipment.Value.Hood);
+            switch (clothScriptable.ClothType)
+            {
+                case ClothType.Hood:
+                    return clothScriptable == _currentClothEquipment.Value.Hood;
+            
+                case ClothType.Shoulder:
+                    return clothScriptable == _currentClothEquipment.Value.Shoulder;
+            
+                case ClothType.Top:
+                    return clothScriptable == _currentClothEquipment.Value.Top;
+            
+                case ClothType.Bottom:
+                    return clothScriptable == _currentClothEquipment.Value.Bottom;
+            
+                default:
+                    return false;
+            }
+
+           
+        }
     }
 }

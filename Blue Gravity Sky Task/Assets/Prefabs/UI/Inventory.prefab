@@ -155,6 +155,7 @@ MonoBehaviour:
   _inventoryItemParent: {fileID: 2577578545970150615}
   _uiPanel: {fileID: 5395277970575546667}
   _inventoryItemList: []
+  _currentClothEquipment: {fileID: 11400000, guid: e026b72ee7a4f84429fc7527b80ff928, type: 2}
 --- !u!1 &1151626899252628346
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,6 +81,7 @@ namespace BlueGravityStudios
             var shopItem = Instantiate(_shopItemPrefab, _shopItemContainer);
             shopItem.SetItemScriptable(itemScriptable);
             shopItem.CallInit();
+            shopItem.transform.SetAsFirstSibling();
             _shopItemList.Add(shopItem);
         }
 
