@@ -1103,7 +1103,7 @@ MonoBehaviour:
       - m_Target: {fileID: 4179381120490818753}
         m_TargetAssemblyTypeName: BlueGravityStudios.Shop, Assembly-CSharp
         m_MethodName: TryToggleShop
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
