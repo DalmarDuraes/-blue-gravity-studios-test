@@ -15,20 +15,45 @@ namespace BlueGravityStudios
         private Rigidbody2D _rb2D;
         private PlayerInputAction playerInputAction;
         private Vector2 _inputVector;
+        private Vector3 _standardScale;
+        private Vector3 _flippedScale;
+
+        private bool _isFlipped;
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
             _rb2D = GetComponent<Rigidbody2D>();
             playerInputAction = new PlayerInputAction();
             playerInputAction.PlayerActionMap.Enable();
+            
+            _standardScale = transform.localScale;
+            _flippedScale = _standardScale;
+            _flippedScale.x *= -1;
         }
 
         private void FixedUpdate()
         {
             _inputVector = playerInputAction.PlayerActionMap.PlayerMovement.ReadValue<Vector2>();
+
+            if (_inputVector.x < 0 && !_isFlipped)
+            {
+                transform.localScale = _flippedScale;
+                _isFlipped = true;
+            }
+            
+            else if(_inputVector.x > 0 && _isFlipped)
+            {
+                transform.localScale = _standardScale;
+                _isFlipped = false;
+            }
+            
             _rb2D.velocity = _inputVector * _speed;
         }
 
+        private void FlipSprite()
+        {
+            
+        }
     
         
         
