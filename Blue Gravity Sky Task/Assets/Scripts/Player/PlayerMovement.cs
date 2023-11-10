@@ -11,6 +11,8 @@ namespace BlueGravityStudios
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float _speed;
+        [SerializeField] private Animator _playerAnimator;
+        
         private PlayerInput _playerInput;
         private Rigidbody2D _rb2D;
         private PlayerInputAction playerInputAction;
@@ -19,7 +21,6 @@ namespace BlueGravityStudios
         private Vector3 _flippedScale;
         private bool _canMove = true;
         private bool _isFlipped;
-        
         private void OnEnable()
         {
             EventManager.Register<bool>(PlayerEvents.ToggleCanMove,  ToggleCanMove);
@@ -44,14 +45,22 @@ namespace BlueGravityStudios
 
         private void FixedUpdate()
         {
+            
             if (!_canMove)
             {
+                _playerAnimator.SetBool("Walking",false);
                 _rb2D.velocity = Vector2.zero;
                 return;
             }
             
             _inputVector = playerInputAction.PlayerActionMap.PlayerMovement.ReadValue<Vector2>();
-
+            
+            if (_inputVector.x == 0 && _inputVector.y == 0)
+                _playerAnimator.SetBool("Walking",false);
+            else
+                _playerAnimator.SetBool("Walking",true);
+            
+            
             if (_inputVector.x < 0 && !_isFlipped)
             {
                 transform.localScale = _flippedScale;

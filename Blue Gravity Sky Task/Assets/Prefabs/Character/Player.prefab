@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _playerAnimator: {fileID: 1062817520661404768}
 --- !u!50 &4081615891305716576
 Rigidbody2D:
   serializedVersion: 4
@@ -324,6 +325,11 @@ SpriteRenderer:
 --- !u!212 &945558042694300634 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212000010222169336, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+  m_PrefabInstance: {fileID: 1147961493382586146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1062817520661404768 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95000012403032898, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
   m_PrefabInstance: {fileID: 1147961493382586146}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1144007873553534232 stripped
