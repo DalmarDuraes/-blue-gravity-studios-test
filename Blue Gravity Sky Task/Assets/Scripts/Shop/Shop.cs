@@ -90,6 +90,7 @@ namespace BlueGravityStudios
         {
             _isOpen = !_isOpen;
             ToggleShop(_isOpen);
+            EventManager.Trigger<bool>(PlayerEvents.ToggleCanMove, !_isOpen);
         }
 
 

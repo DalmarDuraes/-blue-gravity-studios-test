@@ -9,4 +9,5 @@ public enum PlayerEvents
     PlayerInputNpcInteraction,
     PlayerInputToggleInventory,
     UpdateInventoryItemsButtons,
+    ToggleCanMove,
 }

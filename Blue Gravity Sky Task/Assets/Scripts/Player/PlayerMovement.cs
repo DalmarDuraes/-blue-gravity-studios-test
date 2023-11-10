@@ -17,8 +17,19 @@ namespace BlueGravityStudios
         private Vector2 _inputVector;
         private Vector3 _standardScale;
         private Vector3 _flippedScale;
-
+        private bool _canMove = true;
         private bool _isFlipped;
+        
+        private void OnEnable()
+        {
+            EventManager.Register<bool>(PlayerEvents.ToggleCanMove,  ToggleCanMove);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Unregister<bool>(PlayerEvents.ToggleCanMove, ToggleCanMove);
+        }
+
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
@@ -33,6 +44,12 @@ namespace BlueGravityStudios
 
         private void FixedUpdate()
         {
+            if (!_canMove)
+            {
+                _rb2D.velocity = Vector2.zero;
+                return;
+            }
+            
             _inputVector = playerInputAction.PlayerActionMap.PlayerMovement.ReadValue<Vector2>();
 
             if (_inputVector.x < 0 && !_isFlipped)
@@ -49,14 +66,10 @@ namespace BlueGravityStudios
             
             _rb2D.velocity = _inputVector * _speed;
         }
-
-        private void FlipSprite()
+        
+        private void ToggleCanMove(bool value)
         {
-            
+            _canMove = value;
         }
-    
-        
-        
-        
     }
 }
