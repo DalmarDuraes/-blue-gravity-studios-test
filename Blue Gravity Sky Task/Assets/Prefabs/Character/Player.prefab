@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 6328ae9d4c55a7141b22f824fd01b320, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: b8813f1ab8864744fa16af004f875a3f, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -98,8 +98,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: ec50cdd2-7e00-4c5a-bbda-e86fabf2b993
-    m_ActionName: Player/NpcInteraction[/Keyboard/e]
+    m_ActionId: 8e21aa92-5fd7-4ef4-8373-a7be4a90df46
+    m_ActionName: PlayerActionMap/NpcInteraction[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6131830132280270007}
@@ -114,11 +114,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 8b82de68-97da-42c2-88d3-377733fc6e47
-    m_ActionName: Player/ToggleInventory[/Keyboard/i]
+    m_ActionId: 82e77a70-d808-4d19-a435-22e7f714e487
+    m_ActionName: PlayerActionMap/ToggleInventory[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 43d4fd89-6cca-4892-bec6-18c8b77856e7
+    m_ActionName: PlayerActionMap/PlayerMovement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: PlayerActionMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &985227657446972151
@@ -159,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _starClothEquipment: {fileID: 11400000, guid: f0a3ff03742efbe44988ced7196fc961, type: 2}
   _currentClothEquipment: {fileID: 11400000, guid: e026b72ee7a4f84429fc7527b80ff928, type: 2}
+  _allEquippedEquipment: []
 --- !u!114 &4690084436277701688
 MonoBehaviour:
   m_ObjectHideFlags: 0
