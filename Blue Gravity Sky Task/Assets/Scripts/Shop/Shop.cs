@@ -60,12 +60,12 @@ namespace BlueGravityStudios
            RemoveItemFromList((ShopItem)item);
         }
 
-        private void RemoveItemFromList(ShopItem itemOnUiBase)
+        private void RemoveItemFromList(ShopItem item)
         {
-            if (_shopItemList.Contains(itemOnUiBase))
+            if (_shopItemList.Contains(item))
             {
-                _shopItemList.Remove(itemOnUiBase);
-                itemOnUiBase.Disable();
+                _shopItemList.Remove(item);
+                item.Disable();
             }
         }
 

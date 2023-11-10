@@ -26,19 +26,23 @@ namespace BlueGravityStudios
             {
                 case ClothType.Hood:
                     _hood.sprite = clothScriptable.ItemSprite;
+                    Debug.Log("Set new Hood cloth");
                     break;
                 
                 case ClothType.Shoulder:
                     _shoulderL.sprite = clothScriptable.ItemSprite;
                     _shoulderR.sprite = clothScriptable.SecondaryItemSprite;
+                    Debug.Log("Set new Shoulder cloth");
                     break;
                 
                 case ClothType.Top:
                     _top.sprite = clothScriptable.ItemSprite;
+                    Debug.Log("Set new Top cloth");
                     break;
                 
                 case ClothType.Bottom:
                     _bottom.sprite = clothScriptable.ItemSprite;
+                    Debug.Log("Set new Bottom cloth");
                     break;
                 
                 default:

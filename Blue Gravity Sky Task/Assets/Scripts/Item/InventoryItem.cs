@@ -29,6 +29,7 @@ namespace BlueGravityStudios
 
         public void ActiveEquipBtn()
         {
+            
             _equipItemBtn.SetActive(true);
             _sellBtn.SetActive(false);
             _pricePanel.SetActive(false);

@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bddf82bd136654980c675a3fc69ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItemOnUiBasePrefab: {fileID: 1708390844322903014, guid: a96b64f30a924874e884c0011bb6201a, type: 3}
+  _inventoryItemPrefab: {fileID: 1708390844322903014, guid: a96b64f30a924874e884c0011bb6201a, type: 3}
   _inventoryItemParent: {fileID: 2577578545970150615}
   _uiPanel: {fileID: 5395277970575546667}
   _inventoryItemList: []

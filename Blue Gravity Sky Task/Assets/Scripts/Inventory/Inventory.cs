@@ -10,7 +10,7 @@ namespace BlueGravityStudios
 {
     public class Inventory : MonoBehaviour
     {
-        [FormerlySerializedAs("_inventoryItemPrefab")] [SerializeField] private InventoryItem inventoryItemOnUiBasePrefab;
+        [SerializeField] private InventoryItem _inventoryItemPrefab;
         [SerializeField] private Transform _inventoryItemParent;
         [SerializeField] private InventoryUI _uiPanel;
         
@@ -23,6 +23,7 @@ namespace BlueGravityStudios
         private void OnEnable()
         {
             EventManager.Register<Item>(PlayerEvents.AddItemToInventory, AddItemToInventory);
+            EventManager.Register<ItemScriptable>(PlayerEvents.AddItemToInventoryBySO, AddItemToInventoryBySO);
             EventManager.Register<InventoryItem>(PlayerEvents.RemoveItemFromInventory, RemoveItemFromInventory);
             EventManager.Register<bool>(NPCEvents.ToggleShop, OnAnyShopToggled); 
             EventManager.Register(PlayerEvents.PlayerInputToggleInventory, PlayerInputToggleInventory);
@@ -31,10 +32,14 @@ namespace BlueGravityStudios
         private void OnDisable()
         {
             EventManager.Unregister<Item>(PlayerEvents.AddItemToInventory, AddItemToInventory);
+            EventManager.Unregister<ItemScriptable>(PlayerEvents.AddItemToInventoryBySO, AddItemToInventoryBySO);
             EventManager.Unregister<InventoryItem>(PlayerEvents.RemoveItemFromInventory, RemoveItemFromInventory);
             EventManager.Unregister<bool>(NPCEvents.ToggleShop, OnAnyShopToggled);
             EventManager.Unregister(PlayerEvents.PlayerInputToggleInventory, PlayerInputToggleInventory);
         }
+
+       
+
         private void OnAnyShopToggled(bool value)
         {
             if (value) _isBlockedByOpenShop = true;
@@ -48,21 +53,34 @@ namespace BlueGravityStudios
         {
             InstantiateNewInventoryItem(item);
         }
-        private void RemoveItemFromInventory(InventoryItem itemOnUiBase)
+        
+        private void AddItemToInventoryBySO(ItemScriptable itemSO)
         {
-            if (_inventoryItemList.Contains(itemOnUiBase))
+            InstantiateNewInventoryItemBySO(itemSO);
+        }
+        
+        private void RemoveItemFromInventory(InventoryItem item)
+        {
+            if (_inventoryItemList.Contains(item))
             {
-                _inventoryItemList.Remove(itemOnUiBase);
-                itemOnUiBase.Disable();
+                _inventoryItemList.Remove(item);
+                item.Disable();
             }
         }
 
         private void InstantiateNewInventoryItem(Item item)
         {
-            InventoryItem inventoryItemOnUiBase = Instantiate(inventoryItemOnUiBasePrefab, _inventoryItemParent);
-            inventoryItemOnUiBase.SetItemScriptable(item.ItemScriptable);
-            _inventoryItemList.Add(inventoryItemOnUiBase);
-            inventoryItemOnUiBase.CallInit();
+            InventoryItem inventoryItem= Instantiate(_inventoryItemPrefab, _inventoryItemParent);
+            inventoryItem.SetItemScriptable(item.ItemScriptable);
+            _inventoryItemList.Add(inventoryItem);
+            inventoryItem.CallInit();
+        }
+        private void InstantiateNewInventoryItemBySO(ItemScriptable itemSO)
+        {
+            InventoryItem inventoryItem= Instantiate(_inventoryItemPrefab, _inventoryItemParent);
+            inventoryItem.SetItemScriptable(itemSO);
+            _inventoryItemList.Add(inventoryItem);
+            inventoryItem.CallInit();
         }
         
         private void PlayerInputToggleInventory()
@@ -85,5 +103,7 @@ namespace BlueGravityStudios
             _isOpen = value;
             _uiPanel.ToggleUI(value, openedByPlayer);
         }
+
+       
     }
 }

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3365847178760675476, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -56.425
+      value: -37.3
       objectReference: {fileID: 0}
     - target: {fileID: 4545900661832435082, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
       propertyPath: m_IsActive
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6711610830969757281, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
       propertyPath: m_Name
-      value: EquipmentVariant
+      value: EquipmentItem
       objectReference: {fileID: 0}
     - target: {fileID: 6711610830969757282, guid: 2545d303de8bb884f90a09a09ba5b440, type: 3}
       propertyPath: m_Pivot.x
