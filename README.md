@@ -1,5 +1,8 @@
 # -blue-gravity-studios-task
 
+GameplayScene:  
+	
+ 	MainScene
 
 Softwares:
 
