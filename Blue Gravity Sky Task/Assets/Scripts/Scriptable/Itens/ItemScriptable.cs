@@ -10,6 +10,7 @@ namespace BlueGravityStudios
     {
         public Sprite ItemSprite;
         public Sprite SecondaryItemSprite;
+        public Sprite SpriteForPanels;
         public String ItemName;
         public int ItemPrice;
         public ItemType ItemType { get; protected set; }

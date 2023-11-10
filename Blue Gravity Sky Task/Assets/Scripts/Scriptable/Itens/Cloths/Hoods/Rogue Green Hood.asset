@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemSprite: {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}
   SecondaryItemSprite: {fileID: 0}
+  SpriteForPanels: {fileID: -120541872, guid: c10e2b7653555f646a79e9f6abbeac21, type: 3}
   ItemName: Green Hood
   ItemPrice: 100
-  ItemType: 0
+  ClothType: 0

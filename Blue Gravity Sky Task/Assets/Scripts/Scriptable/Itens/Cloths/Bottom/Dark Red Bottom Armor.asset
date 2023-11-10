@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemSprite: {fileID: 21300000, guid: b1babcb6ce4ee78478abc5076a6d1b8d, type: 3}
   SecondaryItemSprite: {fileID: 0}
-  ItemName: Dark Red Top Armor
+  SpriteForPanels: {fileID: 1442168939, guid: fd1581068dd457a40a87e50c73ee0436, type: 3}
+  ItemName: Dark Red Bottom Armor
   ItemPrice: 200
   ClothType: 3

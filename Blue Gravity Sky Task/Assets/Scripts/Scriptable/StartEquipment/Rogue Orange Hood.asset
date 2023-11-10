@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Rogue Orange Hood
   m_EditorClassIdentifier: 
   ItemSprite: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
+  SecondaryItemSprite: {fileID: 0}
+  SpriteForPanels: {fileID: 512481765, guid: a73f47a9805b9944e8128c61fe34714d, type: 3}
   ItemName: Orange Hood
   ItemPrice: 100
-  ItemType: 0
+  ClothType: 0

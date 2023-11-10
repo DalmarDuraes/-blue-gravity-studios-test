@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemSprite: {fileID: 21300000, guid: 90458a12b047bb84ba77cb7ea81ba457, type: 3}
   SecondaryItemSprite: {fileID: 0}
+  SpriteForPanels: {fileID: 463084732, guid: 5ff414597ca04824a947620565f96d6f, type: 3}
   ItemName: Green Top Armor
   ItemPrice: 200
   ClothType: 2
