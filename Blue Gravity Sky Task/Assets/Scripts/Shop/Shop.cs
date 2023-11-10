@@ -13,6 +13,7 @@ namespace BlueGravityStudios
         [SerializeField] protected Variable<int> _PlayerCoins;
         [SerializeField] private UIPanel _uiPanel;
         [SerializeField] protected List<ItemScriptable> _itemScriptableList = new List<ItemScriptable>();
+        protected string ShopName;
         
         protected List<ShopItem> _shopItemList = new List<ShopItem>();
         private bool _isOpen;
@@ -29,7 +30,7 @@ namespace BlueGravityStudios
             EventManager.Unregister<Item>(EconomyEvents.SellItem, PlayerTrySellItem);
         }
         
-        private void Awake()
+        protected virtual void Awake()
         {
             PopulateShop();
         }

@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryItemSprite: {fileID: 0}
   SpriteForPanels: {fileID: -2069600744, guid: 99f24abf617de99448e92e7cc88d1db1, type: 3}
   ItemName: Red Hood
-  ItemPrice: 100
+  ItemPrice: 300
   ClothType: 0

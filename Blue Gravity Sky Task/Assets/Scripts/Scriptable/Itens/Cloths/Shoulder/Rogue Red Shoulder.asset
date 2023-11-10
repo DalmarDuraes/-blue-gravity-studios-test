@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryItemSprite: {fileID: 21300000, guid: b2bfd98da49248e42b93a78607ac257a, type: 3}
   SpriteForPanels: {fileID: -802394635, guid: 2fd038bcf1b8b5e4d9770f2d4c6e00e9, type: 3}
   ItemName: Blue Shoulder
-  ItemPrice: 120
+  ItemPrice: 300
   ClothType: 1

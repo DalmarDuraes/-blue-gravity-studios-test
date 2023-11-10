@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryItemSprite: {fileID: 0}
   SpriteForPanels: {fileID: -1172543508, guid: 661c1e20b656c6d49b1f5c9a8177d5b9, type: 3}
   ItemName: Gray Top Armor
-  ItemPrice: 200
+  ItemPrice: 100
   ClothType: 2

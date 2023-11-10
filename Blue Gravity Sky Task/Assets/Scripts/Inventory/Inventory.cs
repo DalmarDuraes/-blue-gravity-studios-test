@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
-
 namespace BlueGravityStudios
 {
     public class Inventory : MonoBehaviour

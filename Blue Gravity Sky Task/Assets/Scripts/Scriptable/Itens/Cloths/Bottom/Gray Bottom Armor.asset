@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryItemSprite: {fileID: 0}
   SpriteForPanels: {fileID: -732301287, guid: 466d58b0f2e9cdb4c871ce316ae6c0c0, type: 3}
   ItemName: Gray Bottom Armor
-  ItemPrice: 200
+  ItemPrice: 100
   ClothType: 3

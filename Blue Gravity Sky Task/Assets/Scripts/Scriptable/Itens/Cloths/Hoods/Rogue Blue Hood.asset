@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryItemSprite: {fileID: 0}
   SpriteForPanels: {fileID: -1153283467, guid: e040cdbd83e712c4dbe0f56ae00efe6a, type: 3}
   ItemName: Blue Hood
-  ItemPrice: 100
+  ItemPrice: 200
   ClothType: 0

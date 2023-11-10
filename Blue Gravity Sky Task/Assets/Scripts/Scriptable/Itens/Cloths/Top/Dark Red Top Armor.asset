@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryItemSprite: {fileID: 0}
   SpriteForPanels: {fileID: 251645587, guid: 2c0097724cc5e8c49b85a85732683dc3, type: 3}
   ItemName: Dark Red Top Armor
-  ItemPrice: 200
+  ItemPrice: 100
   ClothType: 2

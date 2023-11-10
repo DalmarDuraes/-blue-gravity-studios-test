@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryItemSprite: {fileID: 21300000, guid: 44abaa0566659e146ad1c3d17addf82b, type: 3}
   SpriteForPanels: {fileID: 1345856258, guid: 221fa09eb87e6124ab3724fd1b1e2f63, type: 3}
   ItemName: Reinforced Shoulder
-  ItemPrice: 150
+  ItemPrice: 50
   ClothType: 1

@@ -7,6 +7,10 @@ namespace BlueGravityStudios
 {
     public class ClothShop : Shop
     {
-        
+        protected override void Awake()
+        {
+            base.Awake();
+            ShopName = "CLOTHS";
+        }
     }
 }

@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryItemSprite: {fileID: 21300000, guid: 9fe981f3e80b99e429e4399b985d07f4, type: 3}
   SpriteForPanels: {fileID: 1784100487, guid: 6972c85296423fb4fb3f90a5d96f4733, type: 3}
   ItemName: Gray Shoulder
-  ItemPrice: 50
+  ItemPrice: 100
   ClothType: 1

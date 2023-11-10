@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 namespace BlueGravityStudios
 {
     public class InventoryItem: Item
