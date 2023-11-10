@@ -25,4 +25,8 @@ Additional resources:
 	
 	2d Casual Game Ui Hd by "Marya_Belevich"	
 	https://assetstore.unity.com/packages/2d/gui/2d-casual-game-ui-hd-259245
+	
+Sound:
+422720__grubzyy__a_dungeon_ambience_loop from "Grubzyy"
+https://freesound.org/people/Grubzyy/sounds/422720/
 
