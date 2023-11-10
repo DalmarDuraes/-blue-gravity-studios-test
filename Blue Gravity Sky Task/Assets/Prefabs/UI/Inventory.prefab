@@ -459,7 +459,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6382873425300871495}
         m_TargetAssemblyTypeName: BlueGravityStudios.Inventory, Assembly-CSharp
-        m_MethodName: TryToggleInventory
+        m_MethodName: OnCloseButtonClick
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

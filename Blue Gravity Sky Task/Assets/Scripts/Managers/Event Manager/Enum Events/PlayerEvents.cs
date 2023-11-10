@@ -5,7 +5,8 @@ public enum PlayerEvents
     AddItemToInventory,
     AddItemToInventoryBySO,
     RemoveItemFromInventory,
-    EquipItem,
+    TryEquipItem,
     PlayerInputNpcInteraction,
     PlayerInputToggleInventory,
+    UpdateInventoryItemsButtons,
 }

@@ -25,16 +25,13 @@ namespace BlueGravityStudios
         }
         public void TryEquipItem()
         {
-            EventManager.Trigger<Item>(PlayerEvents.EquipItem, this);
+            EventManager.Trigger<ItemScriptable>(PlayerEvents.TryEquipItem, _itemScriptable);
         }
 
         public void ActiveEquipBtn(bool alreadyEquipped)
         {
-            
             _sellBtn.gameObject.SetActive(false);
             _pricePanel.SetActive(false);
-
-            Debug.Log(alreadyEquipped);
             if (alreadyEquipped)
             {
                 _equipItemBtn.SetActive(false);
@@ -54,6 +51,7 @@ namespace BlueGravityStudios
             _equipItemBtn.SetActive(false);
             _sellBtn.SetActive(true);
             _pricePanel.SetActive(true);
+            
             if (alreadyEquipped)
             {
                 _sellBtn.SetActive(false);

@@ -10,16 +10,10 @@ namespace BlueGravityStudios
         [SerializeField] private GameObject _closeButton;
         
         public void ToggleCloseButton(bool value) => _closeButton.SetActive(value);
-
-        public override void ToggleUI(bool value, bool openedByPlayer) 
+   
+        public void UpdateItemsButtons(bool openedByPlayer)
         {
-            base.ToggleUI(value,openedByPlayer);
-
-            if (!value) return;
-
-            var inventoryItemList = _inventory.InventoryItemList;
-
-            foreach (var item in inventoryItemList)
+            foreach (var item in _inventory.InventoryItemList)
             {
                 var alreadyEquipped = _inventory.CheckIfItemIsEquipped(item);
                 if (openedByPlayer)
@@ -29,7 +23,6 @@ namespace BlueGravityStudios
                 else
                     item.ActiveSellBtn(alreadyEquipped);
             }
-
         }
      
     }

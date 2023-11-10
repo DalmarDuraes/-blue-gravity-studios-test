@@ -13,7 +13,17 @@ namespace BlueGravityStudios
         private ClothStruct _currentClothStruct = new ClothStruct();
         private PlayerEquipmentChanger _playerEquipmentChanger;
         private bool _starterEquipmentBlocked;
-        private List<ItemScriptable> _allEquippedEquipment = new List<ItemScriptable>();
+        [SerializeField] private List<ItemScriptable> _allEquippedEquipment = new List<ItemScriptable>();
+
+        private void OnEnable()
+        {
+            EventManager.Register<ItemScriptable>(PlayerEvents.TryEquipItem, TryEquipItem);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Unregister<ItemScriptable>(PlayerEvents.TryEquipItem, TryEquipItem);
+        }
 
         private void Awake()
         {
@@ -64,7 +74,7 @@ namespace BlueGravityStudios
 
                 foreach (var item in _allEquippedEquipment)
                 {
-                    _playerEquipmentChanger.ChangeEquipment(item);
+                    ChangeEquipment(item);
                 }
             }
         }
@@ -83,6 +93,57 @@ namespace BlueGravityStudios
             Debug.LogError($"$error setting equipment");
         }
 
+        private void TryEquipItem(ItemScriptable itemScriptable)
+        {
+            if (itemScriptable.ItemType is ItemType.Cloth)
+            {
+                TryEquipCloth((ClothScriptable)itemScriptable);
+            }
+        }
+
+        private void TryEquipCloth(ClothScriptable clothScriptable)
+        {
+            ClothScriptable currentClothScriptable = null;
+            switch (clothScriptable.ClothType)
+            {
+                case ClothType.Hood:
+                        currentClothScriptable = _currentClothStruct.Hood;
+                        _currentClothStruct.Hood = clothScriptable;
+                    break;
+                
+                case ClothType.Shoulder:
+                        currentClothScriptable = _currentClothStruct.Shoulder;
+                        _currentClothStruct.Shoulder = clothScriptable;
+                    break;
+                
+                case ClothType.Top:
+                        currentClothScriptable = _currentClothStruct.Top;
+                         _currentClothStruct.Top = clothScriptable;
+                    break;
+                
+                case ClothType.Bottom:
+                        currentClothScriptable = _currentClothStruct.Bottom;
+                         _currentClothStruct.Bottom = clothScriptable;
+                    break;
+            }
+
+            if (currentClothScriptable == null) return;
+            
+            _currentClothEquipment.Value = _currentClothStruct;
+            ChangeEquipment(clothScriptable);
+            UpdateInfoAfterChangingEquip(currentClothScriptable);
+        }
+        
+        private void UpdateInfoAfterChangingEquip(ItemScriptable oldScriptable)
+        {
+            if (_allEquippedEquipment.Contains(oldScriptable))
+            {
+                _allEquippedEquipment.Remove(oldScriptable);
+            }
+            EventManager.Trigger<bool>(PlayerEvents.UpdateInventoryItemsButtons, true);
+        }
+        
+        private void ChangeEquipment(ItemScriptable itemScriptable) =>_playerEquipmentChanger.ChangeEquipment(itemScriptable);
     }
 }
 

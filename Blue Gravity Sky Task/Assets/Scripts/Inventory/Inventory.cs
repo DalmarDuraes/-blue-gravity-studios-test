@@ -28,6 +28,7 @@ namespace BlueGravityStudios
             EventManager.Register<InventoryItem>(PlayerEvents.RemoveItemFromInventory, RemoveItemFromInventory);
             EventManager.Register<bool>(NPCEvents.ToggleShop, OnAnyShopToggled); 
             EventManager.Register(PlayerEvents.PlayerInputToggleInventory, PlayerInputToggleInventory);
+            EventManager.Register<bool>(PlayerEvents.UpdateInventoryItemsButtons, UpdateInventoryUItemsButton);
         }
 
         private void OnDisable()
@@ -37,6 +38,7 @@ namespace BlueGravityStudios
             EventManager.Unregister<InventoryItem>(PlayerEvents.RemoveItemFromInventory, RemoveItemFromInventory);
             EventManager.Unregister<bool>(NPCEvents.ToggleShop, OnAnyShopToggled);
             EventManager.Unregister(PlayerEvents.PlayerInputToggleInventory, PlayerInputToggleInventory);
+            EventManager.Unregister<bool>(PlayerEvents.UpdateInventoryItemsButtons, UpdateInventoryUItemsButton);
         }
 
         private void OnAnyShopToggled(bool value)
@@ -98,9 +100,9 @@ namespace BlueGravityStudios
         private void ToggleInventory(bool value, bool openedByPlayer = false)
         {
             _isOpen = value;
-            _uiPanel.ToggleUI(value, openedByPlayer);
+            _uiPanel.ToggleUI(value);
+            UpdateInventoryUItemsButton(openedByPlayer);
         }
-
 
         public bool CheckIfItemIsEquipped(InventoryItem item)
         {
@@ -117,7 +119,6 @@ namespace BlueGravityStudios
 
         private bool CheckIfClothIsEquipped(ClothScriptable clothScriptable)
         {
-           Debug.Log(_currentClothEquipment.Value.Hood);
             switch (clothScriptable.ClothType)
             {
                 case ClothType.Hood:
@@ -135,8 +136,11 @@ namespace BlueGravityStudios
                 default:
                     return false;
             }
+        }
 
-           
+        private void UpdateInventoryUItemsButton(bool openedByPlayer)
+        {
+            _uiPanel.UpdateItemsButtons(openedByPlayer);
         }
     }
 }
